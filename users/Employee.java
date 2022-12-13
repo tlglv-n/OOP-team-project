@@ -5,7 +5,7 @@ import data.Message;
 
 public class Employee extends User implements IResearcher{
 	
-	private Vector <Message> allMessages;
+	private Vector <Message> messages;
 
 	protected Employee(){
 		super();
@@ -20,7 +20,7 @@ public class Employee extends User implements IResearcher{
 	}
 	
 	public Vector <Message> getMessages(){
-		return null;
+		return messages;
 	}
 
 	public void sendMessage(Employee receiver, Message message) {

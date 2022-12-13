@@ -9,10 +9,6 @@ public class Researcher implements IResearcher{
 	private IResearcher r;
 	private Vector <ResearchPaper>;
 
-	public Researcher(){
-		super();
-	}
-
 	public IResearcher getDecoratedObject(){
 		return r;
 	}

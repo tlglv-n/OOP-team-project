@@ -1,5 +1,7 @@
 package users;
 
-public class Teacher extends Employee implements IResearcher{
+import java.io.Serializable;
+
+public class Teacher extends Employee implements Serializable{
 }
 

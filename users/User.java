@@ -71,5 +71,4 @@ public abstract class User implements Serializable, Comparable <User>{
 		if(id < u.id) {return -1;}
 		return 0;
 	}
-
 }

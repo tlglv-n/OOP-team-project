@@ -9,8 +9,10 @@ public class Book
 	private int id;
 	private Date deadline;
 
-	public Book(){
-	}
+	public Book(){}
 
+	public String getName(){
+		return name;
+	}
 }
 
