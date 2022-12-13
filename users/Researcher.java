@@ -30,6 +30,14 @@ public class Researcher implements Serializable, Comparable <Researcher>{
 		if(researches.size() < r.researches.size()){return -1;}
 		return 0;
 	}
+
+	public void addResearch(ResearchPaper researchPaper){
+		researches.add(researchPaper);
+	}
+
+	public void dropResearch(ResearchPaper researchPaper){
+		researches.remove(researchPaper);
+	}
 	
 }
 

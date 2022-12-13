@@ -8,7 +8,7 @@ public class Admin extends User{
 		super(login, password);
 	}
 
-	public void addUser(User user) {	
+	public void addUser(User user){	
 	}
 	public void deleteUser(User user) {	
 	}

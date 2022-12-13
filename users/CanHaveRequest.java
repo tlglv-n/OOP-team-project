@@ -9,5 +9,6 @@ public  interface CanHaveRequest {
 	void addRequest(Request r);
 	
 	void declineRequest(Request r);
+
 }
 

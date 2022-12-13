@@ -9,7 +9,7 @@ public class Manager extends Employee implements CanHaveRequest{
 	
 	private static final long serialVersionUID = 1L;
 	private static Vector <Manager> listManagers;
-	private static HashMap <Student, Vector <Request> > requests;
+	private static HashMap <Student, Vector <Request>> requests;
 
 	public Manager(){
 		super();
@@ -63,6 +63,10 @@ public class Manager extends Employee implements CanHaveRequest{
 	public void declineRequest(Request r) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public static HashMap <Student, Vector <Request>> getAllRequests(){
+		return requests;
 	}
 	
 }
