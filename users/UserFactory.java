@@ -2,7 +2,7 @@ package users ;
 
 public class UserFactory{
 
-	public User getUser(UserType type) {
+	public static User getUser(UserType type) {
 		if(type == UserType.ADMIN){
 			return new Admin();
 		}

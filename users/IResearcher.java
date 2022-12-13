@@ -1,4 +1,7 @@
 package users ;
 
 
-public interface IResearcher {}
+public interface IResearcher {
+    
+    Researcher becomeResearcher();
+}

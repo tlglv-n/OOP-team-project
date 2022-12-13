@@ -63,5 +63,9 @@ public class Advisor implements IResearcher, Serializable, Comparable <Advisor>{
         if(this.students.size() == a.students.size()){return 0;}
         return -1;
     }
+
+    public Researcher becomeResearcher(){
+        return new Researcher(this);
+    }
 }
 

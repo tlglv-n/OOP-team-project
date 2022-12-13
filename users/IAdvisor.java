@@ -1,3 +1,6 @@
 package users ;
 
-public  interface IAdvisor {}
+public  interface IAdvisor {
+
+    Advisor becomeAdvisor();
+}

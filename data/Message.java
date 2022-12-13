@@ -2,8 +2,9 @@ package data;
 
 import users.Employee;
 import java.util.Objects;
+import java.io.Serializable;
 
-public class Message{
+public class Message implements Serializable, Comparable <Message>{
 
 	private Employee sender;
 	private String theme;
@@ -70,6 +71,12 @@ public class Message{
 
 	public String toString(){
 		return "Sender: " + sender + "\n" + "Theme: " + theme + "\n" + text;
+	}
+
+	public int compareTo(Message m){
+		if(this.read && !m.read){return 1;}
+		if(!this.read && m.read){return -1;}
+		return this.sender.compareTo(m.sender);
 	}
 
 }
