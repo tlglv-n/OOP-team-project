@@ -1,12 +1,12 @@
 package data;
 
-import users.Employee;
+import users.User;
 import java.util.Objects;
 import java.io.Serializable;
 
 public class Message implements Serializable, Comparable <Message>{
 
-	private Employee sender;
+	private User sender;
 	private String theme;
 	private String text;
 	private boolean read = false;
@@ -15,21 +15,21 @@ public class Message implements Serializable, Comparable <Message>{
 		super();
 	}
 
-	public Message(Employee sender){
+	public Message(User sender){
 		this.sender = sender;
 	}
 
-	public Message(Employee sender, String theme){
+	public Message(User sender, String theme){
 		this(sender);
 		setTheme(theme);
 	}
 
-	public Message(Employee sender, String theme, String text){
+	public Message(User sender, String theme, String text){
 		this(sender, theme);
 		setText(text);
 	}
 
-	public Employee getSender(){
+	public User getSender(){
 		return sender;
 	}
 
