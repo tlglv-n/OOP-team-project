@@ -8,7 +8,7 @@ import data.Lesson;
 
 public class Student extends User implements IResearcher{
 	
-	private StudentType studentType;
+	private StudentType type;
 	private HashMap <Course, Mark> marks;
 	private HashMap <Lesson, Boolean> atttendance;
 
@@ -20,7 +20,13 @@ public class Student extends User implements IResearcher{
 		super(login, password);
 	}
 	
-	public void getMarks(){}
+	public HashMap <Course, Mark> getMarks(){
+		return marks;
+	}
+
+	public HashMap <Lesson, Boolean> getAttendance(){
+		return atttendance;
+	}
 	
 	public void register(Course c){}
 	
@@ -36,16 +42,17 @@ public class Student extends User implements IResearcher{
 	public void toRequest(Student student, String text) {
 		// TODO implement me	
 	}
-	
-	public void setFinancialInfo() {
-		// TODO implement me	
-	}
+
 	public StudentType getStudentType() {
-		return studentType;
+		return type;
 	}
 	
 	public String toString() {
-		return "This is student";
+		return type + super.toString().replace("User", "Student");
+	}
+
+	public Researcher becomeResearcher(){
+		return new Researcher(this);
 	}
 }
 

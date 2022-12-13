@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Vector;
 
-public class Advisor implements IAdvisor, IResearcher, Serializable, Comparable <Advisor>{
+public class Advisor implements IResearcher, Serializable, Comparable <Advisor>{
 
     private Vector <Student> students;
     private IAdvisor adv;
@@ -62,6 +62,10 @@ public class Advisor implements IAdvisor, IResearcher, Serializable, Comparable 
         if(this.students.size() > a.students.size()){return 1;}
         if(this.students.size() == a.students.size()){return 0;}
         return -1;
+    }
+
+    public Researcher becomeResearcher(){
+        return new Researcher(this);
     }
 }
 

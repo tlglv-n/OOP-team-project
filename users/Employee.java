@@ -29,5 +29,9 @@ public class Employee extends User implements IResearcher{
 	public String toString() {
 		return "This is Employee";
 	}
+
+	public Researcher becomeResearcher(){
+		return new Researcher(this);
+	}
 }
 
