@@ -1,15 +1,13 @@
 package users;
 
+import java.util.HashMap;
 import java.util.Vector;
-
 import data.Book;
 
 public class Librarian extends Employee
 {
 	
-	private Vector <Student> listStudents;
-	
-	private Vector <Book> listBooks;
+	private HashMap <Student, Vector <Book> > takenBook;
 
 	public Librarian(){
 		super();
@@ -33,6 +31,10 @@ public class Librarian extends Employee
 	
 	public void getListStudents() {
 		// TODO implement me	
+	}
+
+	public HashMap <Student, Vector <Book> > getTakenBooks(){
+		return takenBook;
 	}
 	
 }
