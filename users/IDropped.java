@@ -1,7 +1,4 @@
-package users ;
+package users;
 
 
-public  interface IDropped {
-	
-}
-
+public  interface IDropped {}

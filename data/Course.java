@@ -1,4 +1,4 @@
-package DataPackage ;
+package data;
 
 
 /**
@@ -54,7 +54,6 @@ public class Course
 	
 	public void addCourseForRegister(Course course) {
 		// TODO implement me
-		return null;	
 	}
 	
 	/**
@@ -77,7 +76,6 @@ public class Course
 	
 	public void assignCourseForTeacher(Course course) {
 		// TODO implement me
-		return null;	
 	}
 	
 	/**

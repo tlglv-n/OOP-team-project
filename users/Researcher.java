@@ -1,43 +1,20 @@
-package Package ;
+package users;
+
+import java.util.Vector;
+import data.ResearchPaper;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+public class Researcher implements IResearcher{
 
-public class Researcher implements Researcher
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+	private IResearcher r;
+	private Vector <ResearchPaper>;
+
 	public Researcher(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void () {
-		// TODO implement me	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void () {
-		// TODO implement me	
+	public IResearcher getDecoratedObject(){
+		return r;
 	}
 	
 }

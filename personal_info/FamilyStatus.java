@@ -1,4 +1,4 @@
-package users;
+package personal_info;
 
 /**
  * <!-- begin-user-doc -->

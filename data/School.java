@@ -1,5 +1,6 @@
-package DataPackage ;
+package data;
 
+import java.util.Vector;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +35,7 @@ public class School
 	 * @ordered
 	 */
 	
-	private  programs;
+	private Vector <String> programs;
 	
 	/**
 	 * <!-- begin-user-doc -->

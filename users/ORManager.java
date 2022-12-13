@@ -2,19 +2,12 @@ package users ;
 
 import data.Course;
 
-public class ORManager extends Manager
-{
+public class ORManager extends Manager{
 
 	public ORManager(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public void manageSchedule() {
 		// TODO implement me	

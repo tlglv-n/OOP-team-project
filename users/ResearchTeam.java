@@ -1,28 +1,9 @@
-package Users ;
+package users;
 
+import java.util.Vector; 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
-public class ResearchTeam extends Researcher
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private  researchers;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+public class ResearchTeam extends Researcher{
+	private Vector <Researcher> researchers;
 	public ResearchTeam(){
 		super();
 	}

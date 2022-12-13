@@ -2,11 +2,9 @@ package users;
 
 import java.util.Vector;
 
-public class Manager extends Employee
-{
+public class Manager extends Employee{
 	
 	private static final long serialVersionUID = 1L;
-
 	private static Vector <Manager> listManagers;
 
 	public Manager(){
@@ -31,6 +29,10 @@ public class Manager extends Employee
 	
 	public void getStudentFinancialInfo() {
 		// TODO implement me	
+	}
+
+	public static Vector <Manager> getManagers(){
+		return listManagers;
 	}
 	
 }

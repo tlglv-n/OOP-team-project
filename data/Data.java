@@ -1,4 +1,6 @@
-package DataPackage ;
+package data;
+
+import users.User;
 
 
 /**

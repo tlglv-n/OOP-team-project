@@ -1,4 +1,4 @@
-package class diagrams1 ;
+package data;
 
 
 /**

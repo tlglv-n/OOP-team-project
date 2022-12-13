@@ -1,5 +1,6 @@
-package DataPackage ;
+package data;
 
+import java.util.HashMap;
 
 /**
  * <!-- begin-user-doc -->

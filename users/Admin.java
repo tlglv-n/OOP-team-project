@@ -4,6 +4,7 @@ import java.util.Vector;
 
 public class Admin extends User{
 	private Vector <User> allUsers;
+
 	public Admin(){
 		super();
 	}

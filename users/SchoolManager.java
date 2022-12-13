@@ -1,11 +1,6 @@
-package Users ;
+package users;
 
-
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+import data.Course;
 
 public class SchoolManager extends Manager
 {
@@ -23,7 +18,6 @@ public class SchoolManager extends Manager
 	
 	public void assignCourseForTeacher(Course course) {
 		// TODO implement me
-		return null;	
 	}
 
 }
