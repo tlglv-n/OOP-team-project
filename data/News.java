@@ -15,6 +15,14 @@ public class News
 	public News(){
 		super();
 	}
-
+	public String getText() {
+		return text;
+	}
+	public String getTheme() {
+		return theme;
+	}
+	public String toString() {
+		return "This is " + text + "and theme is " + theme;
+	}
 }
 

@@ -26,5 +26,8 @@ public class Employee extends User implements IResearcher{
 	public void sendMessage(Employee receiver, Message message) {
 		
 	}
+	public String toString() {
+		return "This is Employee";
+	}
 }
 

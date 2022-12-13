@@ -33,6 +33,12 @@ public class Student extends User implements IResearcher{
 	public void setFinancialInfo() {
 		// TODO implement me	
 	}
+	public StudentType getStudentType() {
+		return studentType;
+	}
 	
+	public String toString() {
+		return "This is student";
+	}
 }
 

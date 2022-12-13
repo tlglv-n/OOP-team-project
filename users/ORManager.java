@@ -34,6 +34,9 @@ public class ORManager extends Manager{
 	public void register() {
 		// TODO implement me	
 	}
+	public String toString() {
+		return "This is the office registration";
+	}
 
 	
 }

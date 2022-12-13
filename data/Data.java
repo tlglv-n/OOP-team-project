@@ -1,77 +1,46 @@
 package data;
 
+import java.util.Objects;
+
 import users.User;
-
-
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class Data
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	private Data instance;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	private String path;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public Data(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public Data getInstance() {
-		// TODO implement me
-		return null;	
+		return instance;	
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	public String getPath() {
+		return path;
+	}
 	
 	public User getUser(String name, String password) {
-		// TODO implement me
 		return null;	
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public void saveUser(User user) {
-		// TODO implement me	
+		
 	}
+	public boolean equals(Object o) {
+		if(o == null) {return false;}
+		if(this == o) {return true;}
+		if(this.getClass() != o.getClass()) {return false;}
+		Data d = (Data) o;
+		return instance.equals(d.instance);
+	}
+	public int hashCode() {
+		return Objects.hash(instance);	
+	}
+	public String toString() {
+		return "Data's instance: " + instance + ", Path: " + path;
+	}
+	
+	
 	
 }
 

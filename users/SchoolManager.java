@@ -19,6 +19,8 @@ public class SchoolManager extends Manager
 	public void assignCourseForTeacher(Course course) {
 		// TODO implement me
 	}
-
+	public String toString() {
+		return "This is school manager";
+	}
 }
 

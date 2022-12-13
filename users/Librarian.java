@@ -31,8 +31,19 @@ public class Librarian extends Employee
 		// TODO implement me	
 	}
 	
-	public void getListStudents() {
-		// TODO implement me	
+	public Vector<Student> getListStudents() {
+		return listStudents;
+	}
+	public Vector<Book> getListBooks() {
+		return listBooks;
+	}
+	public int compareTo(Librarian o) {
+		if(listStudents.size() > o.listStudents.size()) {return 1;}
+		if(listStudents.size() < o.listStudents.size()) {return -1;}
+		return 0;
+	}
+	public String toString() {
+		return "This is librarian";
 	}
 	
 }
