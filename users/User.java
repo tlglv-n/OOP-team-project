@@ -1,11 +1,19 @@
 package users;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.Objects;
 import personal_info.PersonalInfo;
 
 
-public abstract class User implements Serializable, Comparable <User>{
+public class User implements Serializable, Comparable <User>{
 
 	private static final long serialVersionUID = 1L;
 	private PersonalInfo info;
@@ -13,9 +21,36 @@ public abstract class User implements Serializable, Comparable <User>{
 	private static int idCount;
 	private String login;
 	private int passwordHash;
+
+	static {
+		try{
+			InputStream is = new FileInputStream(".\\users\\users_id_count.dat");
+			DataInputStream check = new DataInputStream(is);
+			idCount = check.readInt();
+			check.close();
+			is.close();
+		}
+		catch (FileNotFoundException e){
+			System.out.println("ERROR");
+			System.out.println(e);
+		}
+		catch (IOException ioe){
+			System.out.println("Kill me");
+		}
+	}
 	
 	{
 		id = ++idCount;
+		try{
+			OutputStream fw = new FileOutputStream(".\\users\\users_id_count.dat");
+			DataOutputStream dos = new DataOutputStream(fw);
+			dos.writeInt(idCount);
+			dos.close();
+			fw.close();
+		}
+		catch(IOException ioe){
+			System.out.println("AAA");
+		}
 	}
 	
 	protected User(){}
