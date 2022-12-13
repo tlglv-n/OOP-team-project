@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Vector;
 
-public class Advisor implements IAdvisor, IResearcher, Serializable, Comparable <Advisor>{
+public class Advisor implements IResearcher, Serializable, Comparable <Advisor>{
 
     private Vector <Student> students;
     private IAdvisor adv;

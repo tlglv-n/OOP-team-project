@@ -11,6 +11,7 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.Objects;
 import personal_info.PersonalInfo;
+import data.Data;
 
 
 public class User implements Serializable, Comparable <User>{
@@ -51,6 +52,7 @@ public class User implements Serializable, Comparable <User>{
 		catch(IOException ioe){
 			System.out.println("AAA");
 		}
+		Data.getInstance().addUser(this);
 	}
 	
 	protected User(){}

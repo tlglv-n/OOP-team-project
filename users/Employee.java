@@ -1,11 +1,12 @@
 package users;
 
 import java.util.Vector;
+import java.util.Collection;
 import data.Message;
 
 public class Employee extends User implements IResearcher{
 	
-	private Vector <Message> messages;
+	private Vector <Message> messages = new Vector <Message>();
 
 	protected Employee(){
 		super();
@@ -16,7 +17,11 @@ public class Employee extends User implements IResearcher{
 	}
 
 	public void addMessage(Message message) {
-		
+		messages.add(message);
+	}
+
+	public void addMessages(Collection <Message> messages){
+		this.messages.addAll(messages);
 	}
 	
 	public Vector <Message> getMessages(){

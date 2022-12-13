@@ -1,77 +1,37 @@
 package data;
 
+import java.io.Serializable;
+import java.util.Vector;
+import java.util.stream.Collector;
+
 import users.User;
 
+public class Data implements Serializable{
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
-public class Data
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private Data instance;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+	private static Data instance;
+	private Vector <User> users;
 	private String path;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public Data(){
 		super();
 	}
+	
+	public static Data getInstance() {
+		return instance;	
+	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Data getInstance() {
-		// TODO implement me
-		return null;	
+	public User getUser(String login, String password) {
+		users.stream().filter(u-> u.verify(login, password)).collect(Collector.)
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public User getUser(String name, String password) {
-		// TODO implement me
-		return null;	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public void saveUser(User user) {
-		// TODO implement me	
+		// TODO implement me
 	}
+
+	public void save(){
+
+	}
+
+	public void addUser(User user){}
 	
 }
 
