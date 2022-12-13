@@ -1,5 +1,12 @@
 package users;
 
+import java.io.DataInputStream;
+import java.io.DataOutput;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Objects;
 import personal_info.PersonalInfo;
@@ -13,9 +20,36 @@ public abstract class User implements Serializable, Comparable <User>{
 	private static int idCount;
 	private String login;
 	private int passwordHash;
+
+	static{
+		try{
+			FileInputStream fis = new FileInputStream(".\\users.users_id_count.dat");
+			DataInputStream dis = new DataInputStream(fis);
+			idCount = dis.readInt();
+			dis.close();
+			fis.close();
+		}
+		catch (FileNotFoundException fnfe){
+			System.out.println("First user");
+		}
+		catch (IOException ioe){
+			System.out.println("Something wrong");
+		}
+
+	}
 	
 	{
 		id = ++idCount;
+		try{
+			FileOutputStream fos = new FileOutputStream(".\\users.users_id_count.dat");
+			DataOutputStream dos = new DataOutputStream(fos);
+			dos.writeInt(idCount);
+			dos.close();
+			fos.close();
+		}
+		catch (IOException ioe){
+			System.out.println("Don't know");
+		}
 	}
 	
 	protected User(){}
