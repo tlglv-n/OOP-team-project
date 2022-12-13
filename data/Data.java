@@ -33,6 +33,7 @@ public class Data
 		Data d = (Data) o;
 		return instance.equals(d.instance);
 	}
+
 	public int hashCode() {
 		return Objects.hash(instance);	
 	}
