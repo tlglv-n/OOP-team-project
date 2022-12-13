@@ -16,18 +16,19 @@ public class Employee extends User implements IResearcher{
 	}
 
 	public void addMessage(Message message) {
-		
+		messages.add(message);
 	}
 	
 	public Vector <Message> getMessages(){
 		return messages;
 	}
 
-	public void sendMessage(Employee receiver, Message message) {
-		
+	public void sendMessage(Employee receiver, String theme, String text){
+		receiver.addMessage(new Message(this, theme, text));
 	}
+
 	public String toString() {
-		return "This is Employee";
+		return super.toString().replace("User", "Employee");
 	}
 
 	public Researcher becomeResearcher(){

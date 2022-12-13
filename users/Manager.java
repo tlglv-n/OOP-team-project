@@ -5,11 +5,11 @@ import java.util.Vector;
 
 import data.Request;
 
-public class Manager extends Employee{
+public class Manager extends Employee implements CanHaveRequest{
 	
 	private static final long serialVersionUID = 1L;
 	private static Vector <Manager> listManagers;
-	private static HashMap<Student, Request> requests;
+	private static HashMap <Student, Vector <Request> > requests;
 
 	public Manager(){
 		super();
@@ -42,13 +42,27 @@ public class Manager extends Employee{
 	public static Vector <Manager> getManagers(){
 		return listManagers;
 	}
-	public int compareTo(Manager o) {
-		if(listManagers.size() > o.listManagers.size()) {return 1;}
-		if(listManagers.size() < o.listManagers.size()) {return -1;}
-		return 0;
-	}
+
 	public String toString() {
-		return "This is manager";
+		return super.toString().replace("Employee", "Manager");
+	}
+
+	@Override
+	public void fullfillRequest(Request r) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addRequest(Request r) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void declineRequest(Request r) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -3,6 +3,7 @@ package users;
 import java.util.HashMap;
 import data.Course;
 import data.Mark;
+import personal_info.PersonalInfo;
 import data.Lesson;
 
 
@@ -30,7 +31,9 @@ public class Student extends User implements IResearcher{
 	
 	public void register(Course c){}
 	
-	public String getTeacherInfo(Teacher t){return null;}
+	public PersonalInfo getTeacherInfo(Teacher t){
+		return t.getPersonalInfo();
+	}
 	
 	public void rateTeacher(Teacher t, int rating) {}
 
@@ -48,11 +51,10 @@ public class Student extends User implements IResearcher{
 	}
 	
 	public String toString() {
-		return type + super.toString().replace("User", "Student");
+		return type + " " +  super.toString().replace("User", "Student");
 	}
 
 	public Researcher becomeResearcher(){
 		return new Researcher(this);
 	}
 }
-
