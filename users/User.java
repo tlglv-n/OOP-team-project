@@ -50,7 +50,7 @@ public abstract class User implements Serializable, Comparable <User>{
 		return Objects.hash(password);
 	}
 	
-	public boolean verifyLogin(String login, String password) {
+	public boolean verify(String login, String password) {
 		return this.login.equals(login) && passwordHash == createPasswordHash(password);
 	}
 	

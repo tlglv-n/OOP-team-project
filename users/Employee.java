@@ -2,11 +2,18 @@ package users;
 
 import java.util.Vector;
 import data.Message;
-import data.Request;
 
 public class Employee extends User implements IResearcher{
 	
 	private Vector <Message> allMessages;
+
+	protected Employee(){
+		super();
+	}
+
+	public Employee(String login, String password){
+		super(login, password);
+	}
 
 	public void addMessage(Message message) {
 		
@@ -18,10 +25,6 @@ public class Employee extends User implements IResearcher{
 
 	public void sendMessage(Employee receiver, Message message) {
 		
-	}
-	
-	public Employee(){
-		super();
 	}
 }
 

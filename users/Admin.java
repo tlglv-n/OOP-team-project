@@ -1,9 +1,8 @@
 package users;
 
-import java.util.Vector;
+import java.io.Serializable;
 
-public class Admin extends User{
-	private Vector <User> allUsers;
+public class Admin extends User implements Serializable{
 
 	public Admin(){
 		super();
