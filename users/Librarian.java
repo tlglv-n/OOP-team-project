@@ -11,8 +11,12 @@ public class Librarian extends Employee
 	
 	private Vector <Book> listBooks;
 
-	public Librarian(){
+	protected Librarian(){
 		super();
+	}
+
+	public Librarian(String login, String password){
+		super(login, password);
 	}
 	
 	public void takeBook() {

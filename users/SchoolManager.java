@@ -8,6 +8,10 @@ public class SchoolManager extends Manager
 	public SchoolManager(){
 		super();
 	}
+
+	public SchoolManager(String login, String password){
+		super(login, password);
+	}
 	
 	public void assignCourseToTeacher(Course parameter2, Teacher parameter3) {	
 	}

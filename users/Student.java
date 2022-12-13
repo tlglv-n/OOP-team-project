@@ -9,6 +9,16 @@ import data.Lesson;
 public class Student extends User implements IResearcher{
 	
 	private StudentType studentType;
+	private HashMap <Course, Mark> marks;
+	private HashMap <Lesson, Boolean> atttendance;
+
+	public Student(){
+		super();
+	}
+
+	public Student(String login, String password){
+		super(login, password);
+	}
 	
 	public void getMarks(){}
 	
@@ -17,10 +27,7 @@ public class Student extends User implements IResearcher{
 	public String getTeacherInfo(Teacher t){return null;}
 	
 	public void rateTeacher(Teacher t, int rating) {}
-	
-	public Student(){
-		super();
-	}
+
 
 	public void askTeacher() {
 		// TODO implement me	

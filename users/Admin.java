@@ -1,12 +1,13 @@
 package users;
 
-import java.io.Serializable;
+public class Admin extends User{
 
-public class Admin extends User implements Serializable{
+	protected Admin(){}
 
-	public Admin(){
-		super();
+	public Admin(String login, String password){
+		super(login, password);
 	}
+
 	public void addUser(User user) {	
 	}
 	public void deleteUser(User user) {	

@@ -8,17 +8,15 @@ public class ORManager extends Manager{
 		super();
 	}
 
+	public ORManager(String login, String password){
+		super(login, password);
+	}
+
 	
 	public void manageSchedule() {
 		// TODO implement me	
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
 	
 	public void confirmRegistration(Student parameter, Course parameter2) {
 		// TODO implement me	

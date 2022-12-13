@@ -3,13 +3,19 @@ package users;
 import java.util.HashMap;
 import java.util.Vector;
 
+import data.Request;
+
 public class Manager extends Employee{
 	
 	private static final long serialVersionUID = 1L;
 	private static Vector <Manager> listManagers;
-	private static HashMap<Student, Report> requests;
+	private static HashMap<Student, Request> requests;
 	public Manager(){
 		super();
+	}
+
+	public Manager(String login, String password){
+		super(login, password);
 	}
 	
 	public String getTeacherInfo(Teacher teacher) {
