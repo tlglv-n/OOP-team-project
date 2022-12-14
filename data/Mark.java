@@ -1,21 +1,19 @@
 package data;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class Mark
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+	private double firstAtt = -1;
+	private double secondAtt = -1;
+	private double finalMark = -1;
+
 	public Mark(){
 		super();
+	}
+
+	public double getFinal(){
+		return finalMark;
 	}
 
 }

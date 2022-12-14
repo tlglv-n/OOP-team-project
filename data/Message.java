@@ -18,5 +18,13 @@ public class Message{
 		this.text = text;
 	}
 
+	public void setTheme(String theme){
+		this.theme = theme;
+	}
+
+	public void setText(String text){
+		this.text = text;
+	}
+
 }
 

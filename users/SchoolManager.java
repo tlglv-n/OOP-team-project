@@ -2,8 +2,7 @@ package users;
 
 import data.Course;
 
-public class SchoolManager extends Manager
-{
+public class SchoolManager extends Manager{
 	
 	public SchoolManager(){
 		super();

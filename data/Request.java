@@ -1,41 +1,34 @@
 package data ;
 
+import java.io.Serializable;
+import users.Student;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
-public class Request extends Message
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private boolean executed;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+public class Request extends Message implements Serializable{
+
+	private boolean executed = false;
+	private Student sender;
+
 	public Request(){
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+	public Request(Student sender, String theme, String text){
+		this.sender = sender;
+		setTheme(theme);
+		setText(text);
+	}
+
 	public void execute() {
-		// TODO implement me	
+		this.executed = true;	
+	}
+
+	public boolean getExecuted(){
+		return executed;
+	}
+
+	public Student getSender(){
+		return sender;
 	}
 	
 }

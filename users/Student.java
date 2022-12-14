@@ -3,6 +3,7 @@ package users;
 import java.util.HashMap;
 import data.Course;
 import data.Mark;
+import data.Request;
 import personal_info.PersonalInfo;
 import data.Lesson;
 
@@ -10,8 +11,9 @@ import data.Lesson;
 public class Student extends User implements IResearcher{
 	
 	private StudentType type;
-	private HashMap <Course, Mark> marks;
+	private HashMap <Course, Mark> marksCurrent;
 	private HashMap <Lesson, Boolean> atttendance;
+	private HashMap <Course, Mark> marksFinished;
 
 	public Student(){
 		super();
@@ -20,30 +22,50 @@ public class Student extends User implements IResearcher{
 	public Student(String login, String password){
 		super(login, password);
 	}
+
+	public Student(String login, String password, StudentType type){
+		super(login, password);
+		this.type = type;
+	}
 	
-	public HashMap <Course, Mark> getMarks(){
-		return marks;
+	public HashMap <Course, Mark> getCurrentMarks(){
+		return marksCurrent;
+	}
+
+	public HashMap <Course, Mark> getFinishedMarks(){
+		return marksFinished;
 	}
 
 	public HashMap <Lesson, Boolean> getAttendance(){
 		return atttendance;
 	}
+
+	public void setMark(Course c, Mark m){
+		marksCurrent.put(c, m);
+		if(m.getFinal() != -1){
+			marksCurrent.remove(c);
+			marksFinished.put(c, m);
+		}
+	}
 	
-	public void register(Course c){}
+	public void register(Course c){
+		if(!checkRegistration(c)){return;}
+		Manager.addRequest(new Request(this, "Registration", c.toString() + " want to register "));
+	}
+
+	public boolean checkRegistration(Course c){
+		int cnt = 0;
+		for(Course cur: marksCurrent.keySet()){
+			cnt += cur.getCredits();
+		}
+		if(cnt + c.getCredits() > 21){
+			return false;
+		}
+		return true;
+	}
 	
 	public PersonalInfo getTeacherInfo(Teacher t){
 		return t.getPersonalInfo();
-	}
-	
-	public void rateTeacher(Teacher t, int rating) {}
-
-
-	public void askTeacher() {
-		// TODO implement me	
-	}
-
-	public void toRequest(Student student, String text) {
-		// TODO implement me	
 	}
 
 	public StudentType getStudentType() {

@@ -1,6 +1,8 @@
 package users ;
 
 import data.Course;
+import data.Mark;
+import data.School;
 
 public class ORManager extends Manager{
 
@@ -12,26 +14,21 @@ public class ORManager extends Manager{
 		super(login, password);
 	}
 
-	
 	public void manageSchedule() {
 		// TODO implement me	
 	}
-
 	
-	public void confirmRegistration(Student parameter, Course parameter2) {
-		// TODO implement me	
+	public void confirmRegistration(Student student, Course course) {
+		student.getMarks().put(course, new Mark());
 	}
 	
-	public void addCourseForRegister(Course course) {
+	public Course addCourseForRegister(String name, School school, Semester sem) {
 	}
 	
 	public void dropCourseForRegister(Course course) {
 		// TODO implement me	
 	}
-	
-	public void register() {
-		// TODO implement me	
-	}
+
 	public String toString() {
 		return "This is the office registration";
 	}

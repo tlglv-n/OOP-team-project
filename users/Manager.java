@@ -1,15 +1,13 @@
 package users;
 
-import java.util.HashMap;
 import java.util.Vector;
-
 import data.Request;
+import personal_info.PersonalInfo;
 
 public class Manager extends Employee implements CanHaveRequest{
 	
 	private static final long serialVersionUID = 1L;
-	private static Vector <Manager> listManagers;
-	private static HashMap <Student, Vector <Request>> requests;
+	private static Vector <Request> requests;
 
 	public Manager(){
 		super();
@@ -19,55 +17,39 @@ public class Manager extends Employee implements CanHaveRequest{
 		super(login, password);
 	}
 	
-	public String getTeacherInfo(Teacher teacher) {
-		// TODO implement me
-		return "";	
+	public PersonalInfo getTeacherInfo(Teacher teacher) {
+		return teacher.getPersonalInfo();
 	}
 	
-	public String getStudentInfo(Student student) {
-		// TODO implement me
-		return "";	
-	}
-
-	public String getStudentsRequests() {
-		// TODO implement me
-		return "";	
-	}
-	
-	
-	public void getStudentFinancialInfo() {
-		// TODO implement me	
-	}
-
-	public static Vector <Manager> getManagers(){
-		return listManagers;
+	public PersonalInfo getStudentInfo(Student student) {
+		return student.getPersonalInfo();
 	}
 
 	public String toString() {
 		return super.toString().replace("Employee", "Manager");
 	}
 
-	@Override
 	public void fullfillRequest(Request r) {
-		// TODO Auto-generated method stub
-		
+		r.execute();
+		requests.remove(r);
 	}
 
-	@Override
-	public void addRequest(Request r) {
-		// TODO Auto-generated method stub
-		
+	public Request getFirstRequest(){
+		if(!requests.isEmpty()) {return null;}
+		return requests.elementAt(0);
 	}
 
-	@Override
+	public static void addRequest(Request r) {
+		requests.add(r);
+	}
+
 	public void declineRequest(Request r) {
-		// TODO Auto-generated method stub
-		
+		requests.remove(r);
 	}
 
-	public static HashMap <Student, Vector <Request>> getAllRequests(){
+	public static Vector <Request> getAllRequests(){
 		return requests;
 	}
-	
+
 }
 
