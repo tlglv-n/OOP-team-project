@@ -3,6 +3,10 @@ package data;
 import java.util.Objects;
 
 import users.User;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.FileNotFoundException;
 
 public class Data
 {
@@ -11,7 +15,7 @@ public class Data
 	public Data(){
 		super();
 	}
-
+	
 	public Data getInstance() {
 		return instance;	
 	}
@@ -22,18 +26,28 @@ public class Data
 	public User getUser(String name, String password) {
 		return null;	
 	}
-	
-	public void saveUser(User user) {
-		
+	public void save(){
+
 	}
-	public boolean equals(Object o) {
-		if(o == null) {return false;}
-		if(this == o) {return true;}
-		if(this.getClass() != o.getClass()) {return false;}
-		Data d = (Data) o;
-		return instance.equals(d.instance);
+	public void addUser(User user){
+		instance.users.add(user);
 	}
 
+	public void serialize(){
+		try{
+			FileOutputStream fos = new FileOutputStream(this.path + "\\data.dat");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(this.users);
+			oos.close();
+			fos.close();
+		}
+		catch (FileNotFoundException fnfe){
+			System.out.println("NoOOOO");
+		}
+		catch (IOException ioe){
+			System.out.println("You got the wrong file, the leather club is to blocks down");
+		}
+	}
 	public int hashCode() {
 		return Objects.hash(instance);	
 	}
