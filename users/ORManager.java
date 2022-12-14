@@ -1,8 +1,8 @@
 package users ;
 
 import data.Course;
-import data.Mark;
 import data.School;
+import data.Semester;
 
 public class ORManager extends Manager{
 
@@ -19,10 +19,11 @@ public class ORManager extends Manager{
 	}
 	
 	public void confirmRegistration(Student student, Course course) {
-		student.getMarks().put(course, new Mark());
+		student.register(course);
 	}
-	
+
 	public Course addCourseForRegister(String name, School school, Semester sem) {
+		return null;
 	}
 	
 	public void dropCourseForRegister(Course course) {

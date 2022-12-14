@@ -1,6 +1,7 @@
 package data;
 
 import java.util.Objects;
+import java.util.Vector;
 
 import users.User;
 import java.io.FileOutputStream;
@@ -12,8 +13,9 @@ public class Data
 {
 	private Data instance;
 	private String path;
-	public Data(){
-		super();
+	private Vector <User> users;
+
+	private Data(){
 	}
 	
 	public Data getInstance() {
@@ -37,7 +39,7 @@ public class Data
 		try{
 			FileOutputStream fos = new FileOutputStream(this.path + "\\data.dat");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(this.users);
+			oos.writeObject(this);
 			oos.close();
 			fos.close();
 		}

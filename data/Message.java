@@ -3,19 +3,18 @@ package data;
 import java.util.Objects;
 
 import users.Employee;
-import users.Student;
 
 public class Message{
 
 	private String theme;
 	private String text;
-	private Student sender;
+	private Employee sender;
 
 	public Message(){
 		super();
 	}
 
-	public Message(Student sender, String theme, String text){
+	public Message(Employee sender, String theme, String text){
 		this.sender = sender;
 		this.theme = theme;
 		this.text = text;
@@ -28,7 +27,7 @@ public class Message{
 	public void setText(String text){
 		this.text = text;
 	}
-	public void setSender(Student sender) {
+	public void setSender(Employee sender) {
 		this.sender = sender;
 	}
 	public String getTheme() {
@@ -39,7 +38,7 @@ public class Message{
 		return text;
 	}
 
-	public Student getSender() {
+	public Employee getSender() {
 		return sender;
 	}
 	public int hashCode() {
@@ -50,8 +49,7 @@ public class Message{
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
 		Message other = (Message) obj;
-		return Objects.equals(sender, other.sender) && Objects.equals(text, other.text)
-				&& Objects.equals(theme, other.theme);
+		return sender.equals(other.sender) && theme.equals(other.theme) && text.equals(other.text);
 	}
 	public String toString() {
 		return "Message [theme=" + theme + ", text=" + text + ", sender=" + sender + "]";

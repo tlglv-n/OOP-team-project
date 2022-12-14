@@ -6,10 +6,12 @@ import java.util.Objects;
 import users.Student;
 
 
-public class Request extends Message implements Serializable{
+public class Request implements Serializable{
 
 	private boolean executed = false;
 	private Student sender;
+	private String text;
+	private String theme;
 
 	public Request(){
 		super();
@@ -31,6 +33,22 @@ public class Request extends Message implements Serializable{
 	}
 	public Student getSender(){
 		return sender;
+	}
+
+	public String getTheme(){
+		return theme;
+	}
+
+	public String getText(){
+		return text;
+	}
+
+	public void setTheme(String theme){
+		this.theme = theme;
+	}
+
+	public void setText(String text){
+		this.text = text;
 	}
 
 	public int hashCode() {

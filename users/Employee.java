@@ -23,10 +23,9 @@ public class Employee extends User implements IResearcher{
 		return messages;
 	}
 
-//	public void sendMessage(Employee receiver, String theme, String text){
-//		receiver.addMessage(new Message(this, theme, text));
-//	}
-// 	receiver is Student
+	public void sendMessage(Employee receiver, String theme, String text){
+		receiver.addMessage(new Message(this, theme, text));
+	}
 
 	public String toString() {
 		return super.toString().replace("User", "Employee");

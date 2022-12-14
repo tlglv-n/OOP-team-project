@@ -3,8 +3,6 @@ package data;
 import java.util.Date;
 import java.util.Objects;
 
-import users.User;
-
 public class Book
 {
 	
