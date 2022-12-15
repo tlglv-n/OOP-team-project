@@ -2,26 +2,18 @@ package data;
 
 import java.util.Objects;
 
+import users.Teacher;
+
 public class Course
 {
 	private int credits;
 	private String idCode;
 	private String name;
+	private Teacher lector;
+	private Teacher practice;
+
 	public Course(){
 		super();
-	}
-	public void addCourseForRegister(Course course) {
-		// TODO implement me
-	}
-	
-	
-	public void dropCourseForRegister(Course course) {
-		// TODO implement me	
-	}
-
-	
-	public void assignCourseForTeacher(Course course) {
-		// TODO implement me
 	}
 
 	public void updateCourse() {
@@ -55,6 +47,22 @@ public class Course
 		if(credits > c.credits) {return 1;}
 		if(credits < c.credits) {return -1;}
 		return 0;
+	}
+
+	public Teacher getLector(){
+		return lector;
+	}
+
+	public Teacher getPracticeTeacher(){
+		return practice;
+	}
+
+	public void setLector(Teacher t){
+		lector = t;
+	}
+
+	public void setPracticeTeacher(Teacher t){
+		practice = t;
 	}
 }
 

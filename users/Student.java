@@ -4,6 +4,7 @@ import java.util.HashMap;
 import data.Course;
 import data.Mark;
 import data.Request;
+import data.Transcript;
 import personal_info.PersonalInfo;
 import data.Lesson;
 
@@ -13,7 +14,7 @@ public class Student extends User implements IResearcher{
 	private StudentType type;
 	private HashMap <Course, Mark> marksCurrent;
 	private HashMap <Lesson, Boolean> atttendance;
-	private HashMap <Course, Mark> marksFinished;
+	private Transcript transcript;
 
 	public Student(){
 		super();
@@ -32,8 +33,8 @@ public class Student extends User implements IResearcher{
 		return marksCurrent;
 	}
 
-	public HashMap <Course, Mark> getFinishedMarks(){
-		return marksFinished;
+	public Transcript getTranscript(){
+		return transcript;
 	}
 
 	public HashMap <Lesson, Boolean> getAttendance(){
@@ -44,7 +45,7 @@ public class Student extends User implements IResearcher{
 		marksCurrent.put(c, m);
 		if(m.getFinal() != -1){
 			marksCurrent.remove(c);
-			marksFinished.put(c, m);
+			transcript.getMarks().put(c, m);
 		}
 	}
 	

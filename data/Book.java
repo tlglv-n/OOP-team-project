@@ -3,8 +3,7 @@ package data;
 import java.util.Date;
 import java.util.Objects;
 
-public class Book
-{
+public class Book{
 	
 	private String name;	
 	private Date deadline;
@@ -31,5 +30,6 @@ public class Book
 	public String toString() {
 		return "Book: " + name;
 	}
+
 }
 

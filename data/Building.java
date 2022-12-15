@@ -2,12 +2,6 @@ package data;
 
 import java.util.Objects;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
 public class Building
 {	
 	private String name;
@@ -17,6 +11,7 @@ public class Building
 	public Building(){
 		super();
 	}
+
 	public String getName() {
 		return name;
 	}

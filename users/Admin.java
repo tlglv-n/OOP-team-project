@@ -1,5 +1,7 @@
 package users;
 
+import data.Data;
+
 public class Admin extends User{
 
 	protected Admin(){}
@@ -8,12 +10,11 @@ public class Admin extends User{
 		super(login, password);
 	}
 
-	public void addUser(User user){	
+	public void addUser(User user){
+		Data.getInstance().addUser(user);
 	}
-	public void deleteUser(User user) {	
-	}
-	public User updateUser() {
-		return null;	
+	public void deleteUser(User user) {
+		
 	}
 	
 }
