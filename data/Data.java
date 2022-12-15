@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Vector;
 
+import javax.crypto.spec.PBEKeySpec;
+
 import users.User;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,29 +16,19 @@ import java.io.FileNotFoundException;
 
 public final class Data{
 
-	private static Data instance;
-	private static String path;
+	private static Data instance = new Data();
+	private static final String path = ".\\data_info\\";
 	private Vector <User> users;
 	private HashSet <Course> courses;
 
 	private Data(){
-		try{
-			FileInputStream fis = new FileInputStream(path + "\\data.dat");
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			Data temp = (Data)ois.readObject();
-			instance = temp.instance;
-			this.users = temp.users;
-			ois.close();
-			fis.close();
+		Object o1 = getObject("users.dat");
+		if(o1 instanceof Vector <User>){
+			users = (Vector <User>) o1;
 		}
-		catch (FileNotFoundException fnfe){
-			System.out.println("No file");
-		}
-		catch (IOException ioe){
-			System.out.println("Something wrong with file");
-		}
-		catch (ClassNotFoundException cnfe){
-			System.out.println("I don't know how to handle this properly");
+		Object o2 = getObject("courses.dat");
+		if(o2 instanceof HashSet <Course>){
+			courses = (HashSet <Course>) o2;
 		}
 	}
 	
@@ -56,19 +48,8 @@ public final class Data{
 	}
 
 	public void serialize(){
-		try{
-			FileOutputStream fos = new FileOutputStream(path + "\\data.dat");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(this);
-			oos.close();
-			fos.close();
-		}
-		catch (FileNotFoundException fnfe){
-			System.out.println("NoOOOO");
-		}
-		catch (IOException ioe){
-			System.out.println("You got the wrong file, the leather club is to blocks down");
-		}
+		saveObject("users.data", users);
+		saveObject("courses.dat", courses);
 	}
 
 	public int hashCode() {
@@ -77,8 +58,45 @@ public final class Data{
 	public String toString() {
 		return "Data's instance: " + instance + ", Path: " + path;
 	}
-	
-	
-	
+
+	private void saveObject(String filename, Object o){
+		try{
+			FileOutputStream fos = new FileOutputStream(path + filename);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(o);
+			oos.close();
+			fos.close();
+		}
+		catch (FileNotFoundException fnfe){
+			System.out.println("No file");
+		}
+		catch (IOException ioe){
+			System.out.println("Something wrong with file");
+		}
+	}
+
+	private Object getObject(String filename){
+		try{
+			FileInputStream fis = new FileInputStream(path + filename);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			Object o = ois.readObject();
+			ois.close();
+			fis.close();
+			return o;
+		}
+		catch (FileNotFoundException fnfe){
+			System.out.println("No file");
+			return null;
+		}
+		catch (IOException ioe){
+			System.out.println("Something wrong with file");
+			return null;
+		}
+		catch (ClassNotFoundException cnfe){
+			System.out.println("Pretty much impossible");
+			return null;
+		}
+
+	}
 }
 
