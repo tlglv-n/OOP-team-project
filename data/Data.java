@@ -8,20 +8,29 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Vector;
+import java.util.stream.Collectors;
+
+import users.IResearcher;
+import users.Researcher;
 import users.User;
 
 public final class Data implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private static Data instance = new Data();
-	private final String path = ".\\data_info\\objects.dat";
+	private final String path = ".\\data_files\\objects.dat";
 	private Vector <User> users;
 	private HashSet <Course> courses;
+	private Vector <Researcher> researchers;
 	private int usersIdCount;
 
-	private Data(){
+	static{
 		deserialize();
+	}
+
+	private Data(){
 	}
 	
 	public static Data getInstance() {
@@ -33,7 +42,11 @@ public final class Data implements Serializable{
 	}
 	
 	public User getUser(String name, String password) {
-		return null;	
+		List <User> temp = users.stream().filter(s->s.verify(name, password)).collect(Collectors.toList());
+		if(temp.isEmpty()){
+			return null;
+		}
+		return temp.get(0);
 	}
 
 	public int getNextId(){
@@ -52,6 +65,11 @@ public final class Data implements Serializable{
 		serialize();
 	}
 
+	public void addResearcher(Researcher researcher){
+		researchers.add(researcher);
+		serialize();
+	}
+
 	public Vector <User> getUsers(){
 		return users;
 	}
@@ -60,11 +78,23 @@ public final class Data implements Serializable{
 		return courses;
 	}
 
+	public Vector <Researcher> getResearchers(){
+		return researchers;
+	}
+
+	public Researcher getResearcher(IResearcher researcher){
+		List <Researcher> temp = researchers.stream().filter(r->r.getDecoratedObject().equals(researcher)).collect(Collectors.toList());
+		if(temp.isEmpty()){
+			return null;
+		}
+		return temp.get(0);
+	}
+
 	public String toString() {
 		return "Data's instance: " + instance + ", Path: " + path;
 	}
 
-	private static void serialize(){
+	public static void serialize(){
 		try{
 			FileOutputStream fos = new FileOutputStream(instance.path);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);

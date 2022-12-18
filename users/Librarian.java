@@ -5,11 +5,9 @@ import java.util.Vector;
 
 import data.Book;
 
-public class Librarian extends Employee
-{
+public class Librarian extends Employee{
 	
 	private Vector <Student> listStudents;
-	
 	private Vector <Book> listBooks;
 
 	protected Librarian(){

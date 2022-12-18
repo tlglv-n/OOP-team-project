@@ -63,7 +63,7 @@ public abstract class User implements Serializable, Comparable <User>{
 	}
 	
 	public String toString() {
-		return "User(login: " + login + ")";
+		return "User(login: " + login + " id: " + id + ")";
 	}
 	
 	public int compareTo(User u) {

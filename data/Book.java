@@ -12,6 +12,11 @@ public class Book implements Serializable{
 
 	public Book(){}
 
+	public Book(String name, Date deadline){
+		this.name = name;
+		this.deadline = deadline;
+	}
+
 	public String getName(){
 		return name;
 	}

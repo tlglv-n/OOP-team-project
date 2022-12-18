@@ -1,6 +1,7 @@
 package personal_info;
 
 import java.io.Serializable;
+import data.Data;
 
 public class PersonalInfo implements Serializable{
 
@@ -34,6 +35,36 @@ public class PersonalInfo implements Serializable{
 
 	public FamilyStatus getStatus(){
 		return familyStatus;
+	}
+
+	public void setName(String name){
+		this.name = name;
+		Data.serialize();
+	}
+	
+	public void setSurname(String surname){
+		this.surname = surname;
+		Data.serialize();
+	}
+
+	public void setEMail(String eMail){
+		this.eMail = eMail;
+		Data.serialize();
+	}
+
+	public void setPhoneNumber(String phoneNumber){
+		this.phoneNumber = phoneNumber;
+		Data.serialize();
+	}
+
+	public void setGender(Gender gender){
+		this.gender = gender;
+		Data.serialize();
+	}
+
+	public void setFamilyStatus(FamilyStatus familyStatus){
+		this.familyStatus = familyStatus;
+		Data.serialize();
 	}
 
 }
