@@ -1,40 +1,31 @@
 package data;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Vector;
-
-import javax.crypto.spec.PBEKeySpec;
-
-import users.User;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Vector;
+import users.User;
 
-public final class Data{
+public final class Data implements Serializable{
 
 	private static Data instance = new Data();
-	private static final String path = ".\\data_info\\";
+	private final String path = ".\\data_info\\objects.dat";
 	private Vector <User> users;
 	private HashSet <Course> courses;
 
 	private Data(){
-		Object o1 = getObject("users.dat");
-		if(o1 instanceof Vector <User>){
-			users = (Vector <User>) o1;
-		}
-		Object o2 = getObject("courses.dat");
-		if(o2 instanceof HashSet <Course>){
-			courses = (HashSet <Course>) o2;
-		}
+		deserialize();
 	}
 	
-	public Data getInstance() {
+	public static Data getInstance() {
 		return instance;	
 	}
+
 	public String getPath() {
 		return path;
 	}
@@ -45,58 +36,59 @@ public final class Data{
 
 	public void addUser(User user){
 		instance.users.add(user);
+		serialize();
 	}
 
-	public void serialize(){
-		saveObject("users.data", users);
-		saveObject("courses.dat", courses);
+	public void addCourse(Course course){
+		instance.courses.add(course);
+		serialize();
 	}
 
-	public int hashCode() {
-		return Objects.hash(instance);	
+	public Vector <User> getUsers(){
+		return users;
 	}
+
+	public HashSet <Course> getCourses(){
+		return courses;
+	}
+
 	public String toString() {
 		return "Data's instance: " + instance + ", Path: " + path;
 	}
 
-	private void saveObject(String filename, Object o){
+	private static void serialize(){
 		try{
-			FileOutputStream fos = new FileOutputStream(path + filename);
+			FileOutputStream fos = new FileOutputStream(instance.path);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(o);
+			oos.writeObject(instance);
 			oos.close();
 			fos.close();
 		}
 		catch (FileNotFoundException fnfe){
-			System.out.println("No file");
+			System.out.println("No such file");
 		}
 		catch (IOException ioe){
-			System.out.println("Something wrong with file");
+			System.out.println("Wrong file Format");
 		}
 	}
 
-	private Object getObject(String filename){
+	private static void deserialize(){
 		try{
-			FileInputStream fis = new FileInputStream(path + filename);
+			FileInputStream fis = new FileInputStream(instance.path);
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			Object o = ois.readObject();
+			instance = (Data)ois.readObject();
 			ois.close();
 			fis.close();
-			return o;
 		}
 		catch (FileNotFoundException fnfe){
-			System.out.println("No file");
-			return null;
+			System.out.println("No such file");
 		}
 		catch (IOException ioe){
-			System.out.println("Something wrong with file");
-			return null;
+			System.out.println("Wrong file format");
 		}
 		catch (ClassNotFoundException cnfe){
-			System.out.println("Pretty much impossible");
-			return null;
+			System.out.println("I don't know what's wrong");
 		}
-
 	}
 }
 
