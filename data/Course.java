@@ -6,6 +6,7 @@ import users.Teacher;
 
 public class Course implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private int credits;
 	private String idCode;
 	private String name;
@@ -47,9 +48,11 @@ public class Course implements Serializable{
 		Course c = (Course) o;
 		return idCode.equals(c.idCode);
 	}
+
 	public int hashCode() {
 		return Objects.hash(idCode);	
 	}
+
 	public String toString() {
 		return "Course's name: " + name + ", credits: " + credits
 				+ ", ID code: " + idCode;

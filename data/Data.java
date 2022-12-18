@@ -13,6 +13,7 @@ import users.User;
 
 public final class Data implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private static Data instance = new Data();
 	private final String path = ".\\data_info\\objects.dat";
 	private Vector <User> users;
@@ -106,5 +107,6 @@ public final class Data implements Serializable{
 		courses = new HashSet <Course>();
 		usersIdCount = 0;
 	}
+
 }
 

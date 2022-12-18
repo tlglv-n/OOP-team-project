@@ -1,6 +1,7 @@
 package personal_info;
 
-public enum Gender
-{
+public enum Gender{
+	
 	MALE, FEMALE;
+
 }

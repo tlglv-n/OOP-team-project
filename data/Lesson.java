@@ -5,7 +5,8 @@ import java.time.DayOfWeek;
 
 public class Lesson implements Serializable{
     
-    private Course course;
+	private static final long serialVersionUID = 1L;
+	private Course course;
     private Room room;
     private DayOfWeek day;
     private Time time;

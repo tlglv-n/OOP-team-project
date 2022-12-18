@@ -1,21 +1,23 @@
 package data;
 
+import java.io.Serializable;
+import java.util.Vector;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+public final class Schedule implements Serializable{
 
-public class Schedule
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+	private static Schedule instance;
+	private Vector <Lesson> lessons;
+
 	public Schedule(){
 		super();
+	}
+
+	public static Schedule getInstance(){
+		return instance;
+	}
+
+	public Vector <Lesson> getLessons(){
+		return lessons;
 	}
 
 }

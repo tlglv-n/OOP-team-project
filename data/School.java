@@ -1,11 +1,12 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Vector;
 
-public class School
-{
-	
+public class School implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String studies;
 	private Vector <String> programs;

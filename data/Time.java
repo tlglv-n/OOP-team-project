@@ -1,9 +1,11 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Time
-{
+public class Time implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private int start;
 	private int duration;
 

@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class Building implements Serializable{	
 
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String address;
 	private int capacity;

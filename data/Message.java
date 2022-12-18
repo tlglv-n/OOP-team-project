@@ -1,11 +1,13 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import users.Employee;
 
-public class Message{
+public class Message implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private String theme;
 	private String text;
 	private Employee sender;

@@ -22,6 +22,7 @@ public abstract class User implements Serializable, Comparable <User>{
 	public User(String login, String password) {
 		this.login = login;
 		passwordHash = createPasswordHash(password);
+		Data.getInstance().addUser(this);
 	}
 	
 	public User(String login, String password, PersonalInfo info) {

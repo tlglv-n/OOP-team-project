@@ -8,6 +8,7 @@ import users.Student;
 
 public class Request implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private boolean executed = false;
 	private Student sender;
 	private String text;

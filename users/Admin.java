@@ -4,6 +4,7 @@ import data.Data;
 
 public class Admin extends User{
 
+	private static final long serialVersionUID = 1L;
 	protected Admin(){}
 
 	public Admin(String login, String password){

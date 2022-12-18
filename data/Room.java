@@ -1,12 +1,12 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Room
-{
+public class Room implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private Building building;
-
 	private int number;
 
 	public Room(){
@@ -28,9 +28,11 @@ public class Room
 	public void setNumber(int number) {
 		this.number = number;
 	}
+
 	public int hashCode() {
 		return Objects.hash(building, number);
 	}
+
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
 		if (obj == null) return false;

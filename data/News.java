@@ -1,15 +1,12 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
-public class News
-{
+public class News implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private String text;
 	private String theme;
 	

@@ -1,9 +1,11 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Mark
-{
+public class Mark implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private double firstAtt = -1;
 	private double secondAtt = -1;
 	private double finalMark = -1;

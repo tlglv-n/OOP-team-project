@@ -1,11 +1,13 @@
 package data;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
 
-public class Transcript
-{
+public class Transcript implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private HashMap <Course, Mark> marks;
 	private int totalCredits;
 	private double gpa;
