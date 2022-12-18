@@ -1,8 +1,9 @@
 package data;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 
-public class Lesson {
+public class Lesson implements Serializable{
     
     private Course course;
     private Room room;

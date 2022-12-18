@@ -17,6 +17,7 @@ public final class Data implements Serializable{
 	private final String path = ".\\data_info\\objects.dat";
 	private Vector <User> users;
 	private HashSet <Course> courses;
+	private int usersIdCount;
 
 	private Data(){
 		deserialize();
@@ -32,6 +33,12 @@ public final class Data implements Serializable{
 	
 	public User getUser(String name, String password) {
 		return null;	
+	}
+
+	public int getNextId(){
+		++usersIdCount;
+		serialize();
+		return usersIdCount;
 	}
 
 	public void addUser(User user){

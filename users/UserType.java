@@ -1,6 +1,7 @@
 package users;
 
-public enum UserType
-{
+public enum UserType{
+
 	ADMIN, STUDENT, OR_MANAGER, SCHOOL_MANAGER, LIBRARIAN, TEACHER, MANAGER, EMPLOYEE;
+
 }
