@@ -1,33 +1,45 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
-
 import users.Teacher;
 
-public class Course
-{
+public class Course implements Serializable{
+
 	private int credits;
 	private String idCode;
 	private String name;
 	private Teacher lector;
 	private Teacher practice;
 
-	public Course(){
-		super();
+	public Course(){}
+
+	public Course(String idCode){
+		setIdCode(idCode);
 	}
 
-	public void updateCourse() {
-		// TODO implement me	
+	public Course(String idCode, int credits){
+		this(idCode);
+		setCredits(credits);
 	}
+
+	public Course(String idCode, int credits, String name){
+		this(idCode, credits);
+		setName(name);
+	}
+
 	public int getCredits() {
 		return credits;
 	}
+ 
 	public String getIdCode() {
 		return idCode;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public boolean equals(Object o) {
 		if(o == null) {return false;}
 		if(this == o) {return true;}
@@ -64,5 +76,18 @@ public class Course
 	public void setPracticeTeacher(Teacher t){
 		practice = t;
 	}
+
+	public void setCredits(int credits){
+		this.credits = credits;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public void setIdCode(String idCode){
+		this.idCode = idCode;
+	}
+
 }
 

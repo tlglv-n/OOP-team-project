@@ -89,13 +89,22 @@ public final class Data implements Serializable{
 		}
 		catch (FileNotFoundException fnfe){
 			System.out.println("No such file");
+			instance.setDefault();
 		}
 		catch (IOException ioe){
 			System.out.println("Wrong file format");
+			instance.setDefault();
 		}
 		catch (ClassNotFoundException cnfe){
 			System.out.println("I don't know what's wrong");
+			instance.setDefault();
 		}
+	}
+
+	private void setDefault(){
+		users = new Vector <User>();
+		courses = new HashSet <Course>();
+		usersIdCount = 0;
 	}
 }
 
