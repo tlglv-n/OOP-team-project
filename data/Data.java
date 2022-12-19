@@ -24,6 +24,7 @@ public final class Data implements Serializable{
 	private Vector <User> users;
 	private HashSet <Course> courses;
 	private Vector <Researcher> researchers;
+	private Vector <News> news;
 	private int usersIdCount;
 
 	static{
@@ -76,6 +77,14 @@ public final class Data implements Serializable{
 
 	public HashSet <Course> getCourses(){
 		return courses;
+	}
+
+	public Vector <News> getNews(){
+		return news;
+	}
+
+	public void addNews(News news){
+		this.news.add(news);
 	}
 
 	public Vector <Researcher> getResearchers(){

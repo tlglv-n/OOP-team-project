@@ -49,6 +49,10 @@ public abstract class User implements Serializable, Comparable <User>{
 	public static int createPasswordHash(String password) {
 		return Objects.hash(password);
 	}
+
+	public void setPassword(String password){
+		this.passwordHash = createPasswordHash(password);
+	}
 	
 	public boolean verify(String login, String password) {
 		return this.login.equals(login) && passwordHash == createPasswordHash(password);
