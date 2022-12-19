@@ -13,9 +13,11 @@ import users.User;
 
 public abstract class UserView{
 
-	private User user;
-	private BufferedReader reader;
-	private BufferedWriter writer;
+	protected User user;
+	protected BufferedReader reader;
+	protected BufferedWriter writer;
+
+	protected UserView(){}
 
 	public UserView(User user){
 		this.user = user;
@@ -33,6 +35,11 @@ public abstract class UserView{
 			for(News cur: news){
 				writer.write(count + "." + cur);
 				writer.newLine();
+				count++;
+			}
+			String ans = reader.readLine();
+			if(ans.equals("0")){
+				return;
 			}
 		}
 	}
@@ -62,6 +69,6 @@ public abstract class UserView{
 	}
 
 	public abstract void main();
-	
+
 }
 

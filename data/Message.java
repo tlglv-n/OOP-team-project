@@ -54,7 +54,11 @@ public class Message implements Serializable{
 		return sender.equals(other.sender) && theme.equals(other.theme) && text.equals(other.text);
 	}
 	public String toString() {
-		return "Message [theme=" + theme + ", text=" + text + ", sender=" + sender + "]";
+		return "Message [theme=" + theme + ", sender=" + sender + "]";
+	}
+
+	public String getMessage(){
+		return "Sender: " + sender + '\n' + theme + '\n' + text;
 	}
 	
 }
