@@ -9,8 +9,6 @@ import users.Admin;
 public class AdminView extends UserView{
 
 	private Admin admin;
-	private BufferedReader reader;
-	private BufferedWriter writer;
 
 	protected AdminView(){}
 

@@ -1,22 +1,19 @@
 package views;
 
+import users.Student;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+public class StudentView extends UserView{
 
-public class StudentView extends UserView
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public StudentView(){
 		super();
 	}
 
-}
+	public StudentView(Student student){
+		super(student);
+	}
 
+	public void main(){
+
+	}
+
+}
