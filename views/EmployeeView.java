@@ -2,8 +2,11 @@ package views;
 
 import java.io.IOException;
 import java.util.Vector;
+import java.util.stream.Collectors;
+import data.Data;
 import data.Message;
 import users.Employee;
+import users.User;
 
 public abstract class EmployeeView extends UserView{
 
@@ -12,8 +15,6 @@ public abstract class EmployeeView extends UserView{
 	public EmployeeView(Employee employee){
 		super(employee);
 	}
-
-	public abstract void main();
 
 	public void viewMessages() throws IOException{
 		Vector <Message> messages = ((Employee)user).getMessages();
@@ -49,5 +50,29 @@ public abstract class EmployeeView extends UserView{
 		writer.newLine();
 	}
 
+	public void sendMessage() throws IOException{
+		writer.write("Insert Employee's login to send message to: ");
+		writer.newLine();
+		User receiver;
+		String name = reader.readLine();
+		while(true){
+			try{
+				receiver = Data.getInstance().getUsers().stream()
+				.filter(u-> u instanceof Employee)
+				.filter(e -> e.getLogin().equals(name))
+				.collect(Collectors.toList()).get(0);
+				break;
+			}
+			catch (IndexOutOfBoundsException ioofe){
+				writer.write("No such user", 0, 0);
+			}
+		}
+		writer.write("Insert message theme: ");
+		writer.newLine();
+		String theme = reader.readLine();
+		writer.write("Insert message text: ");
+		writer.newLine();
+		String text = reader.readLine();
+		((Employee)user).sendMessage((Employee)receiver, theme, text);
+	}
 }
-
