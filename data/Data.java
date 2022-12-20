@@ -50,6 +50,10 @@ public final class Data implements Serializable{
 		return temp.get(0);
 	}
 
+	public boolean deleteUser(User user){
+		return users.remove(user);
+	}
+
 	public int getNextId(){
 		++usersIdCount;
 		serialize();

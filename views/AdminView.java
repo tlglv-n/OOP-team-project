@@ -38,8 +38,8 @@ public class AdminView extends UserView{
 			login = scanner.next();
 			final String costyl = login;
 			if(Data.getInstance().getUsers().stream()
-			.filter(u -> costyl.equals(u.getLogin()))
-			.collect(Collectors.toList()).isEmpty()){
+				   .filter(u -> costyl.equals(u.getLogin()))
+				   .collect(Collectors.toList()).isEmpty()){
 				break;
 			}
 			System.out.println("Username already used, try again");
@@ -57,6 +57,7 @@ public class AdminView extends UserView{
 			System.out.println("3. Change password");
 			System.out.println("4. Create user");
 			System.out.println("5. View users");
+			System.out.println("6. Delete user");
 			String ans = scanner.next();
 			if(ans.equals("0")){
 				return;
@@ -76,6 +77,9 @@ public class AdminView extends UserView{
 			if(ans.equals("5")){
 				viewUsers();
 			}
+			if(ans.equals("6")){
+				deleteUser();
+			}
 		}
 	}
 
@@ -84,5 +88,23 @@ public class AdminView extends UserView{
 			System.out.println(user);
 		}
 	}
-}
 
+	public void deleteUser(){
+		viewUsers();
+		while(true){
+			System.out.println("Insert login of user you want to delete");
+			final String login = scanner.next();
+			try{
+				User user = Data.getInstance().getUsers().stream()
+							.filter(s -> s.getLogin().equals(login))
+							.collect(Collectors.toList()).get(0);
+				Data.getInstance().deleteUser(user);
+				return;
+			}
+			catch (Exception e){
+				System.out.println("No such option");
+			}
+		}	
+	}
+
+}
