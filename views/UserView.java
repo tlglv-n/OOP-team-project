@@ -1,11 +1,7 @@
 package views;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.Collections;
+import java.util.Scanner;
 import java.util.Vector;
 import data.Data;
 import data.News;
@@ -14,58 +10,49 @@ import users.User;
 public abstract class UserView{
 
 	protected User user;
-	protected BufferedReader reader;
-	protected BufferedWriter writer;
+	protected Scanner scanner = new Scanner(System.in);
 
-	protected UserView(){}
+	public UserView(){}
 
 	public UserView(User user){
+		this();
 		this.user = user;
-		reader = new BufferedReader(new InputStreamReader(System.in));
-		writer = new BufferedWriter(new OutputStreamWriter(System.out));
 	}
 
-	public void viewNews() throws IOException{
+	public void viewNews(){
 		Vector <News> news = Data.getInstance().getNews();
 		Collections.reverse(news);
 		while(true){
-			writer.write("0. Exit", 0, 0);
-			writer.newLine();
+			System.out.println("0. Exit");
 			int count = 1;
 			for(News cur: news){
-				writer.write(count + "." + cur);
-				writer.newLine();
+				System.out.println(count + "." + cur);
 				count++;
 			}
-			String ans = reader.readLine();
+			String ans = scanner.next();
 			if(ans.equals("0")){
 				return;
 			}
 		}
 	}
 
-	public void changePassword() throws IOException{
+	public void changePassword(){
 		while(true){
-			writer.write("Insert new password: ");
-			writer.newLine();
-			String password1 = reader.readLine();
-			writer.write("Confirm password: ");
-			writer.newLine();
-			String password2 = reader.readLine();
+			System.out.println("Insert new password: ");
+			String password1 = scanner.next();
+			System.out.println("Confirm password: ");
+			String password2 = scanner.next();
 			if(password1 == password2){
 				user.setPassword(password2);
-				writer.write("Password changed successfully", 0, 0);
-				writer.newLine();
+				System.out.println("Password changed successfully");
 				break;
 			}
-			writer.write("Passwords don't match", 0, 0);
-			writer.newLine();
+			System.out.println("Passwords don't match");
 		}
 	}
 
-	public void viewPersonalInfo() throws IOException{
-		writer.write(user.getPersonalInfo().toString());
-		writer.newLine();
+	public void viewPersonalInfo(){
+		System.out.println(user.getPersonalInfo());
 	}
 
 	public abstract void main();

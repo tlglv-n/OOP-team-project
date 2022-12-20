@@ -19,15 +19,13 @@ public abstract class EmployeeView extends UserView{
 	public void viewMessages() throws IOException{
 		Vector <Message> messages = ((Employee)user).getMessages();
 		while(true){
-			writer.write("0. Exit", 0, 0);
-			writer.newLine();
+			System.out.println("0. Exit");
 			int count = 1;
 			for(Message cur: messages){
-				writer.write(count + "." + cur);
-				writer.newLine();
+				System.out.println(count + "." + cur);
 				count++;
 			}
-			String ans = reader.readLine();
+			String ans = scanner.next();
 			if(ans.equals("0")){
 				return;
 			}
@@ -35,26 +33,22 @@ public abstract class EmployeeView extends UserView{
 				viewMessage(messages.get(Integer.parseInt(ans) - 1));
 			}
 			catch (IndexOutOfBoundsException iofe){
-				writer.write("Wrong answer", 0, 0);
-				writer.newLine();
+				System.out.println("Wrong answer");
 			}
 			catch (NumberFormatException nfe){
-				writer.write("Not a number", 0, 0);
-				writer.newLine();
+				System.out.println("Not a number");
 			}
 		}
 	}
 
 	public void viewMessage(Message message) throws IOException{
-		writer.write(message.getMessage());
-		writer.newLine();
+		System.out.println(message.getMessage());
 	}
 
 	public void sendMessage() throws IOException{
-		writer.write("Insert Employee's login to send message to: ");
-		writer.newLine();
+		System.out.println("Insert Employee's login to send message to: ");
 		User receiver;
-		String name = reader.readLine();
+		String name = scanner.next();
 		while(true){
 			try{
 				receiver = Data.getInstance().getUsers().stream()
@@ -64,15 +58,13 @@ public abstract class EmployeeView extends UserView{
 				break;
 			}
 			catch (IndexOutOfBoundsException ioofe){
-				writer.write("No such user", 0, 0);
+				System.out.println("No such user");
 			}
 		}
-		writer.write("Insert message theme: ");
-		writer.newLine();
-		String theme = reader.readLine();
-		writer.write("Insert message text: ");
-		writer.newLine();
-		String text = reader.readLine();
+		System.out.println("Insert message theme: ");
+		String theme = scanner.next();
+		System.out.println("Insert message text: ");
+		String text = scanner.next();
 		((Employee)user).sendMessage((Employee)receiver, theme, text);
 	}
 }

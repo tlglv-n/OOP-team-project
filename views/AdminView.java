@@ -1,10 +1,10 @@
 package views ;
 
-import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import data.Data;
 import users.Admin;
+import users.User;
 import users.UserType;
 import users.UserFactory;
 
@@ -16,62 +16,72 @@ public class AdminView extends UserView{
 		super(admin);
 	}
 
-	public void createUser() throws IOException{
+	public void createUser(){
 		UserType type;
 		String password;
 		String login = "Default";
-		writer.write("Choose kind of user you want to create: \n");
+		System.out.println("Choose kind of user you want to create:");
 		for(UserType ut: UserType.values()){
-			writer.write(ut.toString() + '\n');
+			System.out.println(ut);
 		}
 		while(true){
 			try {
-				type = UserType.valueOf(reader.readLine());
+				type = UserType.valueOf(scanner.next());
 				break;
 			}
 			catch (NoSuchElementException nsee){
-				writer.write("No such option \n", 0, 0);
+				System.out.println("No such option ");
 			}
 		}
 		while(true){
-			login = reader.readLine();
+			System.out.println("Insert login:");
+			login = scanner.next();
 			final String costyl = login;
 			if(Data.getInstance().getUsers().stream()
 			.filter(u -> costyl.equals(u.getLogin()))
 			.collect(Collectors.toList()).isEmpty()){
 				break;
 			}
-			writer.write("Username already used, try again\n");
+			System.out.println("Username already used, try again");
 		}
-		writer.write("Insert password: \n");
-		password = reader.readLine();
+		System.out.println("Insert password:");
+		password = scanner.next();
 		UserFactory.getUser(login, password, type);
 	}
 
 	public void main(){
 		while(true){
-			try{
-				writer.write("0. Exit\n");
-				writer.write("1. View news\n");
-				writer.write("2. View personal info\n");
-				writer.write("3. Change password\n");
-				writer.write("4. Create user\n");
-				String ans = reader.readLine();
-				switch(ans){
-					case "0":
-						return;
-					case "1":
-						viewNews();
-					case "2":
-						viewPersonalInfo();
-					case "3":
-						changePassword();
-					case "4":
-						createUser();
-				}
+			System.out.println("0. Exit");
+			System.out.println("1. View news");
+			System.out.println("2. View personal info");
+			System.out.println("3. Change password");
+			System.out.println("4. Create user");
+			System.out.println("5. View users");
+			String ans = scanner.next();
+			if(ans.equals("0")){
+				return;
 			}
-			catch (IOException ioe){
+			if(ans.equals("1")){
+				viewNews();
 			}
+			if(ans.equals("2")){
+				viewPersonalInfo();
+			}
+			if(ans.equals("3")){
+				changePassword();
+			}
+			if(ans.equals("4")){
+				createUser();
+			}
+			if(ans.equals("5")){
+				viewUsers();
+			}
+		}
+	}
+
+	public void viewUsers(){
+		for(User user: Data.getInstance().getUsers()){
+			System.out.println(user);
 		}
 	}
 }

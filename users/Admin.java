@@ -14,9 +14,13 @@ public class Admin extends User{
 	public void addUser(User user){
 		Data.getInstance().addUser(user);
 	}
+
 	public void deleteUser(User user) {
-		
+
 	}
 	
+	public String toString(){
+		return super.toString().replace("User", "Admin");
+	}
 }
 
