@@ -14,6 +14,11 @@ public class ResearchPaper implements Serializable{
 	public ResearchPaper(){
 		super();
 	}
+	public ResearchPaper(String name, String theme, String fieldOfStudy) {
+		this.name = name;
+		this.theme = theme;
+		this.fieldOfStudy = fieldOfStudy;
+	}
 	public String getName() {
 		return name;
 	}
@@ -41,7 +46,7 @@ public class ResearchPaper implements Serializable{
 		String status = "";
 		if(finished) status += "Yes";
 		else status += "No";
-		return "Research paper's name: " + name + ", Status: " + status
+		return "Research paper's name: " + name
 				+ ", The field of study: " + fieldOfStudy + "Paper's theme:" + theme;
 	}
 
