@@ -8,7 +8,7 @@ import personal_info.PersonalInfo;
  *Abstract class User for create a new user
 */
 public abstract class User implements Serializable, Comparable <User>{
-	/** field for specifying the version of serialized data */
+	/** @serial serialVersionUID static final field for specifying the version of serialized data */
 	private static final long serialVersionUID = 1L;
 	/** filed of some information about user */
 	private PersonalInfo info;
