@@ -1,5 +1,7 @@
 package views;
 
+import java.io.IOException;
+
 import users.ORManager;
 
 public class ORManagerView extends ManagerView{
@@ -10,14 +12,11 @@ public class ORManagerView extends ManagerView{
         super(orManager);
     }
 
-    public void createCourse(){
-        while(true){
-            System.out.println("Sosi");
-			System.out.println("Insert course name: ");
-            System.out.println("Insert course idCode: ");
-            System.out.println("Insert course name: ");
-            System.out.println("Insert course name: ");
-		}
+    public void createNews() throws IOException{
+        print("Insert topic: ");
+        String theme = reader.readLine();
+        print("Insert topic: ");
+        String text = reader.readLine();
     }
 
     public void main(){

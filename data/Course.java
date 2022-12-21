@@ -10,8 +10,8 @@ public class Course implements Serializable{
 	private int credits;
 	private String idCode = "default";
 	private String name;
-	private Teacher lector;
-	private Teacher practice;
+	private Teacher lector = new Teacher();
+	private Teacher practice = new Teacher();
 	private School school;
 
 	{
@@ -65,7 +65,7 @@ public class Course implements Serializable{
 
 	public String toString() {
 		return "Course's name: " + name + ", credits: " + credits
-				+ ", ID code: " + idCode;
+				+ ", ID code: " + idCode + ' ' + lector + ' ' + practice;
 	}
 	
 	public int compareTo(Course c) {
