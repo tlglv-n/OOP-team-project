@@ -10,8 +10,9 @@ import data.ResearchPaper;
 
 public class Researcher implements Serializable, Comparable <Researcher>{
 
+	private static final long serialVersionUID = 1L;
 	private IResearcher researcher;
-	private Vector <ResearchPaper> researches;
+	private Vector <ResearchPaper> researches = new Vector <ResearchPaper>();
 
 	{
 		Data.getInstance().addResearcher(this);
