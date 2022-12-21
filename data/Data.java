@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Vector;
 import java.util.stream.Collectors;
-
 import users.IResearcher;
 import users.Researcher;
 import users.User;
@@ -150,6 +149,9 @@ public final class Data implements Serializable{
 		users = new Vector <User>();
 		courses = new HashSet <Course>();
 		usersIdCount = 0;
+		schools = new HashSet <School>();
+		news = new Vector <News>();
+		researchers = new Vector <Researcher>(); 
 	}
 
 	public HashSet <School> getSchools(){
