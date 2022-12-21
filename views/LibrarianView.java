@@ -1,11 +1,8 @@
 package views;
 
 import java.io.IOException;
-import java.util.Vector;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-
 import data.Book;
 import users.Librarian;
 import users.Student;
