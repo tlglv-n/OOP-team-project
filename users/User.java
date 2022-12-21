@@ -84,6 +84,7 @@ public abstract class User implements Serializable, Comparable <User>{
 	}
 	/**
 	 *Method for create hashcode of password of user
+	 *@param password The password of user
 	 *@return int 
 	*/
 	public static int createPasswordHash(String password) {
@@ -98,6 +99,8 @@ public abstract class User implements Serializable, Comparable <User>{
 	}
 	/**
 	 *Method for check user
+	 *@param login The name of user
+	 *@param password The password of user
 	 *@return boolean true if login and password match,
 	 *                false if login and password doesn't match
 	*/
@@ -106,6 +109,7 @@ public abstract class User implements Serializable, Comparable <User>{
 	}
 	/**
 	 *Method for checking users for identity
+	 *@param o Object object
 	 *@return boolean
 	*/
 	public boolean equals(Object o) {
@@ -123,6 +127,7 @@ public abstract class User implements Serializable, Comparable <User>{
 	}
 	/**
 	 *Method for compare id of users
+	 *@param u User object
 	 *@return int
 	*/
 	public int compareTo(User u) {
