@@ -35,6 +35,8 @@ public class Student extends User implements IResearcher{
 	}
 	/**
 	 *Constructor-create a new Student
+	 *@param login The student name
+	 *@param password The password of student
 	 *@see Student#Student()
 	 *@see Student#Student(String,String,StudentType)
 	*/
@@ -43,6 +45,9 @@ public class Student extends User implements IResearcher{
 	}
 	/**
 	 *Constructor-create a new Student
+	 *@param login The student name
+	 *@param password The password of student
+	 *@param type StudentType object
 	 *@see Student#Student()
 	 *@see Student#Student(String,String)
 	*/
