@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class Advisor implements IResearcher, Serializable, Comparable <Advisor>{
 
-    private Vector <Student> students;
+    private Vector <Student> students = new Vector<Student>();
     private IAdvisor adv;
 
     protected Advisor(){}

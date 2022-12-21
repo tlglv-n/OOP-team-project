@@ -7,7 +7,7 @@ import data.Book;
 
 public class Librarian extends Employee{
 	
-	private HashSet <Integer> listStudents = new HashSet<>();
+	private HashSet <Integer> listStudents = new HashSet<Integer>();
 	private HashMap <Book, Integer> listBooks = new HashMap<Book, Integer>();
 
 	protected Librarian(){

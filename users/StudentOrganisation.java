@@ -14,7 +14,7 @@ public class StudentOrganisation implements Serializable, Comparable <StudentOrg
 	/** field of description of organization*/
 	private String desc;
 	/** field of list of the student in organization */
-	private Vector <Student> members;
+	private Vector <Student> members = new Vector<Student>();
 	/**
 	 *Constructor-create a new students organization
 	 *@see StudentOrganisation#StudentOrganisation(String)

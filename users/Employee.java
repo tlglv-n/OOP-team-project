@@ -5,7 +5,7 @@ import data.Message;
 
 public class Employee extends User implements IResearcher{
 	
-	private Vector <Message> messages;
+	private Vector <Message> messages = new Vector<Message>();
 
 	protected Employee(){
 		super();

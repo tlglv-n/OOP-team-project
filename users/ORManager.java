@@ -1,8 +1,5 @@
 package users ;
 
-import data.Course;
-import data.School;
-import data.Semester;
 
 public class ORManager extends Manager{
 
@@ -12,18 +9,6 @@ public class ORManager extends Manager{
 
 	public ORManager(String login, String password){
 		super(login, password);
-	}
-
-	public void manageSchedule() {
-		// TODO implement me	
-	}
-
-	public Course addCourseForRegister(String name, School school, Semester sem) {
-		return null;
-	}
-	
-	public void dropCourseForRegister(Course course) {
-		// TODO implement me	
 	}
 
 	public String toString() {
