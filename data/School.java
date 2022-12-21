@@ -10,9 +10,22 @@ public class School implements Serializable{
 	private String name;
 	private String studies;
 	private Vector <String> programs;
+
+	{
+		Data.getInstance().addSchool(this);
+	}
 	
 	public School(){
 		super();
+	}
+
+	public School(String name){
+		setName(name);
+	}
+
+	public School(String name, String studies){
+		this(name);
+		setStudies(studies);
 	}
 
 	public String getName() {

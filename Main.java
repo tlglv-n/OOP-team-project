@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 import data.Data;
 import users.Admin;
+import users.Student;
 import users.Teacher;
 import users.User;
 import views.AdminView;
+import views.StudentView;
 import views.TeacherView;
 import views.UserView;
 
@@ -19,6 +21,9 @@ public class Main {
         }
         if(user instanceof Teacher){
             view = new TeacherView(((Teacher)user));
+        }
+        if(user instanceof Student){
+            view = new StudentView(((Student)user));
         }
     }
 

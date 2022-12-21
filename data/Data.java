@@ -25,6 +25,7 @@ public final class Data implements Serializable{
 	private HashSet <Course> courses;
 	private Vector <Researcher> researchers;
 	private Vector <News> news;
+	private HashSet <School> schools;
 	private int usersIdCount;
 
 	static{
@@ -149,6 +150,14 @@ public final class Data implements Serializable{
 		users = new Vector <User>();
 		courses = new HashSet <Course>();
 		usersIdCount = 0;
+	}
+
+	public HashSet <School> getSchools(){
+		return schools;
+	}
+
+	public void addSchool(School school){
+		schools.add(school);
 	}
 
 }

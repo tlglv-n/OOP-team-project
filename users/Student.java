@@ -13,9 +13,9 @@ import data.Lesson;
 public class Student extends User implements IResearcher{
 	
 	private StudentType type;
-	private HashMap <Course, Mark> marksCurrent;
-	private HashMap <Lesson, Boolean> atttendance;
-	private Transcript transcript;
+	private HashMap <Course, Mark> marksCurrent = new HashMap <Course, Mark>();
+	private HashMap <Lesson, Boolean> atttendance = new HashMap <Lesson, Boolean>();;
+	private Transcript transcript = new Transcript();
 
 	public Student(){
 		super();
