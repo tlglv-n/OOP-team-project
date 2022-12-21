@@ -1,6 +1,8 @@
 package users;
 
 import java.util.HashMap;
+import java.util.Set;
+
 import data.Course;
 import data.Mark;
 import data.Transcript;
@@ -79,5 +81,13 @@ public class Student extends User implements IResearcher{
 
 	public Researcher becomeResearcher(){
 		return new Researcher(this);
+	}
+
+	public Set <Course> getCourses(){
+		return marksCurrent.keySet();
+	}
+
+	public void dropCourse(Course c){
+		marksCurrent.remove(c);
 	}
 }
