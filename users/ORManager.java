@@ -17,10 +17,6 @@ public class ORManager extends Manager{
 	public void manageSchedule() {
 		// TODO implement me	
 	}
-	
-	public void confirmRegistration(Student student, Course course) {
-		student.register(course);
-	}
 
 	public Course addCourseForRegister(String name, School school, Semester sem) {
 		return null;

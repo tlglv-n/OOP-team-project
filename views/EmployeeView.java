@@ -8,7 +8,7 @@ import data.Message;
 import users.Employee;
 import users.User;
 
-public abstract class EmployeeView extends UserView{
+public class EmployeeView extends UserView{
 
 	public EmployeeView(){}
 
@@ -66,5 +66,9 @@ public abstract class EmployeeView extends UserView{
 		System.out.println("Insert message text: ");
 		String text = scanner.next();
 		((Employee)user).sendMessage((Employee)receiver, theme, text);
+	}
+
+	public void main(){
+		
 	}
 }

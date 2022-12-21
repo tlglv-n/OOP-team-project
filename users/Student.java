@@ -3,7 +3,6 @@ package users;
 import java.util.HashMap;
 import data.Course;
 import data.Mark;
-import data.Request;
 import data.Transcript;
 import personal_info.PersonalInfo;
 import data.Lesson;
@@ -49,9 +48,10 @@ public class Student extends User implements IResearcher{
 		}
 	}
 	
-	public void register(Course c){
-		if(!checkRegistration(c)){return;}
-		Manager.addRequest(new Request(this, "Registration", c.toString() + " want to register "));
+	public boolean register(Course c){
+		if(!checkRegistration(c)){return false;}
+		marksCurrent.put(c, new Mark());
+		return true;
 	}
 
 	public boolean checkRegistration(Course c){
