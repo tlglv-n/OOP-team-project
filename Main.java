@@ -2,11 +2,15 @@ import java.util.Scanner;
 
 import data.Data;
 import users.Admin;
+import users.Librarian;
+import users.ORManager;
 import users.SchoolManager;
 import users.Student;
 import users.Teacher;
 import users.User;
 import views.AdminView;
+import views.LibrarianView;
+import views.ORManagerView;
 import views.SchoolManagerView;
 import views.StudentView;
 import views.TeacherView;
@@ -29,6 +33,12 @@ public class Main {
         }
         if(user instanceof SchoolManager){
             view = new SchoolManagerView((SchoolManager)user);
+        }
+        if(user instanceof ORManager){
+            view = new ORManagerView((ORManager)user);
+        }
+        if(user instanceof Librarian){
+            view = new LibrarianView((Librarian)user);
         }
     }
 

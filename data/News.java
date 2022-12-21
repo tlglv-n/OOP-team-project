@@ -17,6 +17,12 @@ public class News implements Serializable{
 	public News(){
 		super();
 	}
+
+	public News(String theme, String text){
+		setTheme(theme);
+		setText(text);
+	}
+
 	public void setText(String text) {
 		this.text = text;
 	}
@@ -40,7 +46,7 @@ public class News implements Serializable{
 		return Objects.equals(text, other.text) && Objects.equals(theme, other.theme);
 	}
 	public String toString() {
-		return "This is " + text + "and theme is " + theme;
+		return theme + "\n" + text;
 	}
 }
 

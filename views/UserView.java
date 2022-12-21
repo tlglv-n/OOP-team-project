@@ -33,7 +33,7 @@ public abstract class UserView{
 		Vector <News> news = Data.getInstance().getNews();
 		Collections.reverse(news);
 		while(true){
-			writer.write("0. Exit");
+			print("0. Exit");
 			int count = 1;
 			for(News cur: news){
 				print(count + "." + cur);
