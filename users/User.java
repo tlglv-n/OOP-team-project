@@ -32,8 +32,8 @@ public abstract class User implements Serializable, Comparable <User>{
 	protected User(){}
 	/**
 	 *Constructor - creating a new object with certain values
-	 *@param login-user name
-	 *@param password-password of user
+	 *@param login The user name
+	 *@param password The password of user
 	 *@see User#User()
 	 *@see User#User(String, String, PersonalInfo)
 	*/
@@ -44,9 +44,9 @@ public abstract class User implements Serializable, Comparable <User>{
 	}
 	/**
 	 *Constructor - creating a new object with certain values
-	 *@param login-user name
-	 *@param password-password of user
-	 *@param info-some information about the user
+	 *@param login The user name
+	 *@param password The password of user
+	 *@param info PersonalInfo object
 	 *@see User#User()
 	 *@see User#User(String, String)
 	*/
@@ -55,43 +55,43 @@ public abstract class User implements Serializable, Comparable <User>{
 		this.info = info;
 	}
 	/**
-	 *Method for get filed {@link User#login}
-	 *@return String user name
+	 *Method for get field {@link User#login}
+	 *@return String 
 	*/
 	public String getLogin() {
 		return login;	
 	}
 	/**
 	 *Method for get identity number {@link User#id}
-	 *@return int identity number of user
+	 *@return int 
 	*/
 	public int getId() {
 		return id;	
 	}
 	/**
 	 *Method for get hashcode of identity number of user
-	 *@return int hashcode of identity number
+	 *@return int 
 	*/
 	public int hashCode() {
 		return Objects.hash(id);	
 	}
 	/**
 	 *Method for get information of user {@link User#info}
-	 *@return PersonalInfo information about the user
+	 *@return PersonalInfo 
 	*/
 	public PersonalInfo getPersonalInfo() {
 		return info;
 	}
 	/**
 	 *Method for create hashcode of password of user
-	 *@return int hashcode of password
+	 *@return int 
 	*/
 	public static int createPasswordHash(String password) {
 		return Objects.hash(password);
 	}
 	/**
 	 *Method for set password of user
-	 *@param password- password of user
+	 *@param password The password of user
 	*/
 	public void setPassword(String password){
 		this.passwordHash = createPasswordHash(password);
@@ -104,7 +104,10 @@ public abstract class User implements Serializable, Comparable <User>{
 	public boolean verify(String login, String password) {
 		return this.login.equals(login) && passwordHash == createPasswordHash(password);
 	}
-	
+	/**
+	 *Method for checking users for identity
+	 *@return boolean
+	*/
 	public boolean equals(Object o) {
 		if(o == null) {return false;}
 		if(this == o) {return true;}
@@ -112,11 +115,16 @@ public abstract class User implements Serializable, Comparable <User>{
 		User u = (User) o;
 		return id == u.id;
 	}
-	
+	/**
+	 *Method to print info about user  
+	*/
 	public String toString() {
 		return "User(login: " + login + " id: " + id + ")";
 	}
-	
+	/**
+	 *Method for compare id of users
+	 *@return int
+	*/
 	public int compareTo(User u) {
 		if(id > u.id) {return 1;}
 		if(id < u.id) {return -1;}
