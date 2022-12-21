@@ -82,14 +82,16 @@ public class TeacherView extends EmployeeView{
 			switch(choose){
 				case "0":
 					student.getCurrentMarks().get(course).setFirstAtt(points);
+					break;
 				case "1":
 					student.getCurrentMarks().get(course).setSecondAtt(points);
+					break;
 				case "2":
 					student.getCurrentMarks().get(course).setFinalMark(points);
 					student.checkCourses();
+					break;
 				default:
 					print("No such option");
-					continue;
 			}
 		}
 	}

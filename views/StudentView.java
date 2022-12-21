@@ -133,16 +133,22 @@ public class StudentView extends UserView{
 						return;
 					case "1":
 						viewNews();
+						break;
 					case "2":
 						viewPersonalInfo();
+						break;
 					case "3":
 						changePassword();
+						break;
 					case "4":
 						viewAttendance();
+						break;
 					case "5":
 						register();
+						break;
 					case "6":
 						dropCourse();
+						break;
 					default:
 						print("No such option");
 				}

@@ -1,7 +1,6 @@
 package views ;
 
 import java.io.IOException;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import data.Data;
 import users.Admin;
@@ -30,7 +29,7 @@ public class AdminView extends UserView{
 				type = UserType.valueOf(reader.readLine());
 				break;
 			}
-			catch (NoSuchElementException nsee){
+			catch (IllegalArgumentException iae){
 				print("No such option ");
 			}
 		}
@@ -66,16 +65,22 @@ public class AdminView extends UserView{
 						return;
 					case "1":
 						viewNews();
+						break;
 					case "2":
 						viewPersonalInfo();
+						break;
 					case "3":
 						changePassword();
+						break;
 					case "4":
 						createUser();
+						break;
 					case "5":
 						viewUsers();
+						break;
 					case "6":
 						deleteUser();
+						break;
 					default:
 						print("No such option");
 				}
@@ -95,8 +100,11 @@ public class AdminView extends UserView{
 	public void deleteUser() throws IOException{
 		viewUsers();
 		while(true){
-			print("Insert login of user you want to delete");
+			print("Insert login of user you want to delete or 0 to exit");
 			final String login = reader.readLine();
+			if(login.equals("0")){
+				return;
+			}
 			try{
 				User user = Data.getInstance().getUsers().stream()
 							.filter(s -> s.getLogin().equals(login))

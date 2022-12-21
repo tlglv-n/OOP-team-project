@@ -1,8 +1,13 @@
+
+
+import data.Course;
 import data.Data;
-import data.School;
-import users.Admin;
 
 public class AdminTest {
 
-	public static void main(String[] args) {}
+	public static void main(String[] args) {
+		for(Course cur: Data.getInstance().getCourses()){
+			System.out.println(cur);
+		}
+	}
 }
