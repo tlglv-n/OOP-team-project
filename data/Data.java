@@ -13,6 +13,7 @@ import java.util.Vector;
 import java.util.stream.Collectors;
 import users.IResearcher;
 import users.Researcher;
+import users.Teacher;
 import users.User;
 
 public final class Data implements Serializable{
@@ -160,6 +161,11 @@ public final class Data implements Serializable{
 
 	public void addSchool(School school){
 		schools.add(school);
+	}
+
+	public List <Course> getTeacherCourses(Teacher t){
+		return courses.stream().filter(c -> c.getLector().equals(t) || c.getPracticeTeacher().equals(t))
+		                       .collect(Collectors.toList());
 	}
 
 }

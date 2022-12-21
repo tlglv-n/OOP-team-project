@@ -90,4 +90,13 @@ public class Student extends User implements IResearcher{
 	public void dropCourse(Course c){
 		marksCurrent.remove(c);
 	}
+
+	public void checkCourses(){
+		for(Course cur: marksCurrent.keySet()){
+			if(marksCurrent.get(cur).getFinal() != -1){
+				transcript.getMarks().put(cur, marksCurrent.get(cur));
+				marksCurrent.remove(cur);
+			}
+		}
+	}
 }
