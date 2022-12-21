@@ -3,6 +3,8 @@ package users;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.Vector;
+
+import data.Data;
 import data.ResearchPaper;
 
 
@@ -10,6 +12,10 @@ public class Researcher implements Serializable, Comparable <Researcher>{
 
 	private IResearcher researcher;
 	private Vector <ResearchPaper> researches;
+
+	{
+		Data.getInstance().addResearcher(this);
+	}
 
 	protected Researcher(){}
 

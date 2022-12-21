@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import data.Course;
 import data.Data;
+import users.Researcher;
 import users.Student;
 import users.Teacher;
 
@@ -35,6 +36,14 @@ public class TeacherView extends EmployeeView{
 			print(s.toString());
 		}
 		return students;
+	}
+	
+	public void researcherMenu(){
+		Researcher r = Data.getInstance().getResearcher((Student)user);
+		if(r == null){
+			r = new Researcher((Student)user);
+		}
+		new ResearcherView(r).main();
 	}
 
 	public void putMark() throws IOException{
@@ -107,6 +116,7 @@ public class TeacherView extends EmployeeView{
 				print("5. Send message");
 				print("6. View courses");
                 print("7. Put mark");
+                print("8. Researcher menu");
 				String ans = reader.readLine();
 				switch(ans){
 					case "0":
@@ -131,6 +141,9 @@ public class TeacherView extends EmployeeView{
 						break;
                     case "7":
 						putMark();
+						break;
+                    case "8":
+						researcherMenu();
 						break;
 					default:
 						print("No such option");

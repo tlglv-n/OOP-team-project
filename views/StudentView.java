@@ -8,9 +8,10 @@ import data.Course;
 import data.Data;
 import data.Lesson;
 import data.Transcript;
+import users.Researcher;
 import users.Student;
 
-public class StudentView extends UserView{
+public class StudentView extends UserView implements IResearcherView{
 
 	public StudentView(){
 		super();
@@ -47,6 +48,14 @@ public class StudentView extends UserView{
 				print("No such course");
 			}
 		}
+	}
+	
+	public void researcherMenu(){
+		Researcher r = Data.getInstance().getResearcher((Student)user);
+		if(r == null){
+			r = new Researcher((Student)user);
+		}
+		new ResearcherView(r).main();
 	}
 
 	public void register() throws IOException{
@@ -129,6 +138,7 @@ public class StudentView extends UserView{
 				print("6. Drop course");
 				print("7. View marks");
 				print("8. View transcript");
+				print("9. Researcher menu");
 				String ans = reader.readLine();
 				switch(ans){
 					case "0":
@@ -156,6 +166,9 @@ public class StudentView extends UserView{
 						break;
 					case "8":
 						viewTranscipt();
+						break;
+					case "9":
+						researcherMenu();
 						break;
 					default:
 						print("No such option");

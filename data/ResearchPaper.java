@@ -43,11 +43,12 @@ public class ResearchPaper implements Serializable{
 		return Objects.hash(name, finished, fieldOfStudy, theme);	
 	}
 	public String toString() {
-		String status = "";
-		if(finished) status += "Yes";
-		else status += "No";
 		return "Research paper's name: " + name
 				+ ", The field of study: " + fieldOfStudy + "Paper's theme:" + theme;
+	}
+
+	public void finish(){
+		finished = true;
 	}
 
 
