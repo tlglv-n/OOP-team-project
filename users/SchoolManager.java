@@ -1,8 +1,11 @@
 package users;
 
 import data.Course;
+import data.School;
 
 public class SchoolManager extends Manager{
+	
+	private School school;
 	
 	public SchoolManager(){
 		super();
@@ -12,16 +15,25 @@ public class SchoolManager extends Manager{
 		super(login, password);
 	}
 	
-	public void assignCourseToTeacher(Course c, Teacher t) {
+	public void assignCourseToTeacherLector(Course c, Teacher t) {
 		c.setLector(t);	
 	}
-	
-	public void updateCourse() {
-		// TODO implement me	
+
+	public void assignCourseToTeacherPractice(Course c, Teacher t){
+		c.setPracticeTeacher(t);
 	}
 	
 	public String toString() {
-		return "This is school manager";
+		return super.toString().replace("Manager", "SchoolManager");
 	}
+
+	public School getSchool(){
+		return school;
+	}
+
+	public void setSchool(School school){
+		this.school = school;
+	}
+
 }
 

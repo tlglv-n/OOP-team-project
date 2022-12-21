@@ -1,13 +1,8 @@
-
-
-import data.Course;
-import data.Data;
+import users.Admin;
 
 public class AdminTest {
 
 	public static void main(String[] args) {
-		for(Course cur: Data.getInstance().getCourses()){
-			System.out.println(cur);
-		}
+		new Admin("China", "Kaguya");
 	}
 }

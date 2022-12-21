@@ -8,11 +8,15 @@ public class Course implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private int credits;
-	private String idCode;
+	private String idCode = "default";
 	private String name;
 	private Teacher lector;
 	private Teacher practice;
 	private School school;
+
+	{
+		Data.getInstance().addCourse(this);
+	}
 
 	public Course(){}
 

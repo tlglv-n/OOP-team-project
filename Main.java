@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 import data.Data;
 import users.Admin;
+import users.SchoolManager;
 import users.Student;
 import users.Teacher;
 import users.User;
 import views.AdminView;
+import views.SchoolManagerView;
 import views.StudentView;
 import views.TeacherView;
 import views.UserView;
@@ -25,6 +27,9 @@ public class Main {
         if(user instanceof Student){
             view = new StudentView(((Student)user));
         }
+        if(user instanceof SchoolManager){
+            view = new SchoolManagerView((SchoolManager)user);
+        }
     }
 
     public static void login(){
@@ -36,6 +41,10 @@ public class Main {
             String password = scanner.next();
             try{
                 user = Data.getInstance().getUser(login, password);
+                if(user == null){
+                	System.out.println("Wrong username of password");
+                	continue;
+                }
                 System.out.println("Login was successfull");
                 setView(user);
                 return;
