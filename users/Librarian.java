@@ -1,14 +1,16 @@
 package users;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Vector;
-
 import data.Book;
 
 public class Librarian extends Employee{
 	
-	private Vector <Student> listStudents;
-	private Vector <Book> listBooks;
+	private HashSet <Integer> listStudents = new HashSet<>();
+	private HashMap <Book, Integer> listBooks = new HashMap<Book, Integer>();
 
 	protected Librarian(){
 		super();
@@ -18,32 +20,38 @@ public class Librarian extends Employee{
 		super(login, password);
 	}
 	
-	public void takeBook() {
-		// TODO implement me	
+	public boolean searchBook(Book book) {
+		for(HashMap.Entry<Book, Integer> b : listBooks.entrySet()) {
+			if(b.getKey().equals(book)) {
+				return true;
+			}
+		}
+		return false;
 	}
-	
-	public void searchBook() {
-		// TODO implement me	
+	public void takeBook(Book book, int studentId) {
+		if(searchBook(book) && book.getNumber() > 0) {
+			listStudents.add(studentId);
+		}
+		return;
+	}
+	public void addBook(Book book) {
+		listBooks.put(book, book.getNumber());
 	}
 
-	public void addBook() {
-		// TODO implement me	
+	public void deleteBook(Book book) {
+		listBooks.remove(book);
 	}
-
-	public void deleteBook() {
-		// TODO implement me	
-	}
-	public void setListStudents(Vector<Student> listStudents) {
+	public void setListStudents(HashSet<Integer> listStudents) {
 		this.listStudents = listStudents;
 	}
 
-	public void setListBooks(Vector<Book> listBooks) {
+	public void setListBooks(HashMap<Book, Integer> listBooks) {
 		this.listBooks = listBooks;
 	}
-	public Vector<Student> getListStudents() {
+	public HashSet<Integer> getListStudents() {
 		return listStudents;
 	}
-	public Vector<Book> getListBooks() {
+	public HashMap<Book, Integer> getListBooks() {
 		return listBooks;
 	}
 	
