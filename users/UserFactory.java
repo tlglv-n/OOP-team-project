@@ -1,7 +1,14 @@
 package users ;
-
+/**
+ *The class with which we select the user type
+*/
 public class UserFactory{
-
+	/**
+	 *Method for getting a different type of user
+	 *@param type The type of user
+	 *@return User Create a user of type. If the type is null, then return null
+	 *@see UserFactory#getUser(String, String,UserType)
+	*/
 	public static User getUser(UserType type) {
 		if(type == UserType.ADMIN){
 			return new Admin();
@@ -23,7 +30,14 @@ public class UserFactory{
 		}
 		return null;
 	}
-
+	/**
+	 *Method for getting a different type of user
+	 *@param type The type of user
+	 *@param login The username
+	 *@param password The password of user
+	 *@return User Create a user of type. If the type is null, then return null
+	 *@see UserFactory#getUser(UserType)
+	*/
 	public static User getUser(String login, String password, UserType type){
 		if(type == UserType.ADMIN){
 			return new Admin(login, password);
