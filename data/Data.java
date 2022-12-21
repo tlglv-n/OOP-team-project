@@ -164,7 +164,8 @@ public final class Data implements Serializable{
 	}
 
 	public List <Course> getTeacherCourses(Teacher t){
-		return courses.stream().filter(c -> c.getLector().equals(t) || c.getPracticeTeacher().equals(t))
+		return courses.stream().filter(c -> c.getLector() != null)
+							   .filter(c -> c.getLector().equals(t) || c.getPracticeTeacher().equals(t))
 		                       .collect(Collectors.toList());
 	}
 

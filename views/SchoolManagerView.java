@@ -104,7 +104,7 @@ public class SchoolManagerView extends ManagerView{
                 Teacher t = teachers.stream()
                             .filter(teacher -> teacher.getLogin().equals(login))
                             .collect(Collectors.toList()).get(0);
-                if(type.equals(1)){
+                if(type.equals("1")){
                     ((SchoolManager)user).assignCourseToTeacherPractice(c, t);
                 }
                 else{

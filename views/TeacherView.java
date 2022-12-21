@@ -97,7 +97,49 @@ public class TeacherView extends EmployeeView{
 	}
 
 	public void main(){
-		
+		while(true){
+			try{
+				print("0. Exit");
+				print("1. View news");
+				print("2. View personal info");
+				print("3. Change password");
+				print("4. View messages");
+				print("5. Send message");
+				print("6. View courses");
+                print("7. Put mark");
+				String ans = reader.readLine();
+				switch(ans){
+					case "0":
+						return;
+					case "1":
+						viewNews();
+						break;
+					case "2":
+						viewPersonalInfo();
+						break;
+					case "3":
+						changePassword();
+						break;
+					case "4":
+						viewMessages();
+						break;
+					case "5":
+						sendMessage();
+						break;
+					case "6":
+						viewCourses();
+						break;
+                    case "7":
+						putMark();
+						break;
+					default:
+						print("No such option");
+				}
+			}
+			catch (IOException ioe){
+				System.out.println("Error");
+			}
+		}
 	}
 
 }

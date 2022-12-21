@@ -29,7 +29,7 @@ public class Teacher extends Employee{
      *Constructor-create a new Teacher
      *@param login Username of the Teacher
      *@param password Password of the Teacher
-     *@param type The type of the Teacher
+     *@param type TeacherType object
      *@see Teacher#Teacher()
      *@see Teacher#Teacher(String,String)
     */
@@ -39,29 +39,30 @@ public class Teacher extends Employee{
     }
     /**
      *Method to set type of the Teacher
-     *@param type The type of the Teacher
+     *@param type TeacherType object
     */
     public void setType(TeacherType type){
         this.type = type;
     }
     /**
      *Method to get type of the Teacher
-     *@return TeacherType Type of the Teacher
+     *@return TeacherType 
     */
     public TeacherType getType(){
         return type;
     }
     /**
      *Method to print info about Teacher
+     *@return String
     */
     public String toString(){
         return super.toString().replace("Employee", "Teacher") + " " + type;
     }
     /**
      *Method to set mark from Teacher
-     *@param c Name of Course
-     *@param s Name of Student 
-     *@param m Mark from F to A
+     *@param c Course object
+     *@param s Student object 
+     *@param m Mark object
     */
     public void setMark(Course c, Student s, Mark m){
         if(!s.getCurrentMarks().keySet().contains(c)){

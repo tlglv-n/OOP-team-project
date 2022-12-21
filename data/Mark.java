@@ -56,6 +56,10 @@ public class Mark implements Serializable{
 		return this.finalMark == other.finalMark && this.firstAtt == other.firstAtt
 				&& this.secondAtt == other.secondAtt;
 	}
+
+	public String toString(){
+		return "Mark[1_att:" + firstAtt + ", 2_att:" + secondAtt + ", final: " + finalMark; 
+	}
 	
 }
 
