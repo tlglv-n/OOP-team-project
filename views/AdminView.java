@@ -61,26 +61,23 @@ public class AdminView extends UserView{
 				print("5. View users");
 				print("6. Delete user");
 				String ans = reader.readLine();
-				if(ans.equals("0")){
-					return;
-				}
-				if(ans.equals("1")){
-					viewNews();
-				}
-				if(ans.equals("2")){
-					viewPersonalInfo();
-				}
-				if(ans.equals("3")){
-					changePassword();
-				}
-				if(ans.equals("4")){
-					createUser();
-				}
-				if(ans.equals("5")){
-					viewUsers();
-				}
-				if(ans.equals("6")){
-					deleteUser();
+				switch(ans){
+					case "0":
+						return;
+					case "1":
+						viewNews();
+					case "2":
+						viewPersonalInfo();
+					case "3":
+						changePassword();
+					case "4":
+						createUser();
+					case "5":
+						viewUsers();
+					case "6":
+						deleteUser();
+					default:
+						print("No such option");
 				}
 			}
 			catch (IOException ioe){

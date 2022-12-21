@@ -128,26 +128,23 @@ public class StudentView extends UserView{
 				print("5. Register to a course");
 				print("6. Drop course");
 				String ans = reader.readLine();
-				if(ans.equals("0")){
-					return;
-				}
-				if(ans.equals("1")){
-					viewNews();
-				}
-				if(ans.equals("2")){
-					viewPersonalInfo();
-				}
-				if(ans.equals("3")){
-					changePassword();
-				}
-				if(ans.equals("4")){
-					viewAttendance();
-				}
-				if(ans.equals("5")){
-					register();
-				}
-				if(ans.equals("6")){
-					dropCourse();
+				switch(ans){
+					case "0":
+						return;
+					case "1":
+						viewNews();
+					case "2":
+						viewPersonalInfo();
+					case "3":
+						changePassword();
+					case "4":
+						viewAttendance();
+					case "5":
+						register();
+					case "6":
+						dropCourse();
+					default:
+						print("No such option");
 				}
 			}
 			catch (IOException ioe){
