@@ -7,7 +7,7 @@ import personal_info.PersonalInfo;
 public class Manager extends Employee implements CanHaveRequest{
 	
 	private static final long serialVersionUID = 1L;
-	private static Vector <Request> requests;
+	private static Vector <Request> requests = new Vector <Request>();
 
 	public Manager(){
 		super();

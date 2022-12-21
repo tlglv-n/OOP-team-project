@@ -1,12 +1,10 @@
+import data.Course;
 import data.Data;
-import data.School;
-import users.Admin;
 
 public class AdminTest {
 
 	public static void main(String[] args) {
-		Data.getInstance().addSchool(new School("SITE", "Informational techs"));
-		Data.getInstance().addUser(new Admin("China", "Kaguya"));
+		Data.getInstance().addCourse(new Course("21ddd", 3, "OOP"));
 		Data.serialize();
 	}
 
