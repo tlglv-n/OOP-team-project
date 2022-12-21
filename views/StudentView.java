@@ -127,6 +127,8 @@ public class StudentView extends UserView{
 				print("4. View attendance");
 				print("5. Register to a course");
 				print("6. Drop course");
+				print("7. View marks");
+				print("8. View transcript");
 				String ans = reader.readLine();
 				switch(ans){
 					case "0":
@@ -148,6 +150,12 @@ public class StudentView extends UserView{
 						break;
 					case "6":
 						dropCourse();
+						break;
+					case "7":
+						viewMarks();
+						break;
+					case "8":
+						viewTranscipt();
 						break;
 					default:
 						print("No such option");
