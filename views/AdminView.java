@@ -1,5 +1,6 @@
 package views ;
 
+import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import data.Data;
@@ -16,84 +17,89 @@ public class AdminView extends UserView{
 		super(admin);
 	}
 
-	public void createUser(){
+	public void createUser() throws IOException{
 		UserType type;
 		String password;
 		String login = "Default";
-		System.out.println("Choose kind of user you want to create:");
+		print("Choose kind of user you want to create:");
 		for(UserType ut: UserType.values()){
-			System.out.println(ut);
+			print(ut.toString());
 		}
 		while(true){
 			try {
-				type = UserType.valueOf(scanner.next());
+				type = UserType.valueOf(reader.readLine());
 				break;
 			}
 			catch (NoSuchElementException nsee){
-				System.out.println("No such option ");
+				print("No such option ");
 			}
 		}
 		while(true){
-			System.out.println("Insert login:");
-			login = scanner.next();
+			print("Insert login:");
+			login = reader.readLine();
 			final String costyl = login;
 			if(Data.getInstance().getUsers().stream()
 				   .filter(u -> costyl.equals(u.getLogin()))
 				   .collect(Collectors.toList()).isEmpty()){
 				break;
 			}
-			System.out.println("Username already used, try again");
+			print("Username already used, try again");
 		}
-		System.out.println("Insert password:");
-		password = scanner.next();
+		print("Insert password:");
+		password = reader.readLine();
 		UserFactory.getUser(login, password, type);
 	}
 
 	public void main(){
 		while(true){
-			System.out.println("0. Exit");
-			System.out.println("1. View news");
-			System.out.println("2. View personal info");
-			System.out.println("3. Change password");
-			System.out.println("4. Create user");
-			System.out.println("5. View users");
-			System.out.println("6. Delete user");
-			String ans = scanner.next();
-			if(ans.equals("0")){
-				return;
+			try{
+				print("0. Exit");
+				print("1. View news");
+				print("2. View personal info");
+				print("3. Change password");
+				print("4. Create user");
+				print("5. View users");
+				print("6. Delete user");
+				String ans = reader.readLine();
+				if(ans.equals("0")){
+					return;
+				}
+				if(ans.equals("1")){
+					viewNews();
+				}
+				if(ans.equals("2")){
+					viewPersonalInfo();
+				}
+				if(ans.equals("3")){
+					changePassword();
+				}
+				if(ans.equals("4")){
+					createUser();
+				}
+				if(ans.equals("5")){
+					viewUsers();
+				}
+				if(ans.equals("6")){
+					deleteUser();
+				}
 			}
-			if(ans.equals("1")){
-				viewNews();
-			}
-			if(ans.equals("2")){
-				viewPersonalInfo();
-			}
-			if(ans.equals("3")){
-				changePassword();
-			}
-			if(ans.equals("4")){
-				createUser();
-			}
-			if(ans.equals("5")){
-				viewUsers();
-			}
-			if(ans.equals("6")){
-				deleteUser();
+			catch (IOException ioe){
+				System.out.println("Error");
 			}
 		}
 	}
 
-	public void viewUsers(){
+	public void viewUsers() throws IOException{
 		for(User user: Data.getInstance().getUsers()){
-			System.out.println(user);
+			print(user.toString());
 		}
 	}
 
-	public void deleteUser(){
+	public void deleteUser() throws IOException{
 		viewUsers();
 		while(true){
-			System.out.println("Insert login of user you want to delete");
-			final String login = scanner.next();
+			print("Insert login of user you want to delete");
+			final String login = reader.readLine();
 			try{
 				User user = Data.getInstance().getUsers().stream()
 							.filter(s -> s.getLogin().equals(login))
@@ -102,7 +108,7 @@ public class AdminView extends UserView{
 				return;
 			}
 			catch (Exception e){
-				System.out.println("No such option");
+				print("No such option");
 			}
 		}	
 	}

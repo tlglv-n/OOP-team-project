@@ -12,20 +12,26 @@ public class Course implements Serializable{
 	private String name;
 	private Teacher lector;
 	private Teacher practice;
+	private School school;
 
 	public Course(){}
 
-	public Course(String idCode){
+	public Course(School school){
+		setSchool(school);
+	}
+
+	public Course(School school, String idCode){
+		this(school);
 		setIdCode(idCode);
 	}
 
-	public Course(String idCode, int credits){
-		this(idCode);
+	public Course(School school, String idCode, int credits){
+		this(school, idCode);
 		setCredits(credits);
 	}
 
-	public Course(String idCode, int credits, String name){
-		this(idCode, credits);
+	public Course(School school, String idCode, int credits, String name){
+		this(school, idCode, credits);
 		setName(name);
 	}
 
@@ -92,5 +98,12 @@ public class Course implements Serializable{
 		this.idCode = idCode;
 	}
 
+	public void setSchool(School school){
+		this.school = school;
+	}
+
+	public School getSchool(){
+		return school;
+	}
 }
 

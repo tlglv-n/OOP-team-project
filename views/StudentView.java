@@ -1,5 +1,6 @@
 package views;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -19,17 +20,17 @@ public class StudentView extends UserView{
 		super(student);
 	}
 
-	public void viewAttendance(){
+	public void viewAttendance() throws IOException{
 		Object courses [] = ((Student)user).getCurrentMarks().keySet().toArray();
 		while(true){
 			int cnt = 1;
-			System.out.println("Choose subject of attendance");
-			System.out.println("0.Exit");
+			print("Choose subject of attendance");
+			print("0.Exit");
 			for(Object cur: courses){
-				System.out.println(String.valueOf(cnt)+ '.' + cur);
+				print(String.valueOf(cnt)+ '.' + cur);
 				cnt++;
 			}
-			String ans = scanner.next();
+			String ans = reader.readLine();
 			if(ans.equals("0")){
 				return;
 			}
@@ -39,16 +40,16 @@ public class StudentView extends UserView{
 										.filter(lesson -> lesson.getCourse().equals(courses[Integer.parseInt(ans)]))
 										.collect(Collectors.toList());
 				for(Lesson lesson: lessons){
-					System.out.println(lesson.toString() + ' ' + ((Student)user).getAttendance().get(lesson));
+					print(lesson.toString() + ' ' + ((Student)user).getAttendance().get(lesson));
 				}
 			}
 			catch (IndexOutOfBoundsException ioobe){
-				System.out.println("No such course");
+				print("No such course");
 			}
 		}
 	}
 
-	public void register(){
+	public void register() throws IOException{
 		Set <Course> studentCourses = ((Student)user).getCourses();
 		while(true){
 			Set <Course> registration = Data.getInstance()
@@ -56,10 +57,10 @@ public class StudentView extends UserView{
 					   	.filter(c -> !studentCourses.contains(c))
 					   	.collect(Collectors.toSet());
 			for(Course c: registration){
-				System.out.println(c);
+				print(c.toString());
 			}
-			System.out.println("Insert name of course you want to register or 0 to exit");
-			final String courseString = scanner.next();
+			print("Insert name of course you want to register or 0 to exit");
+			final String courseString = reader.readLine();
 			if(courseString.equals("0")){
 				return;
 			}
@@ -68,38 +69,38 @@ public class StudentView extends UserView{
 							.filter(c -> c.getName().equals(courseString))
 							.collect(Collectors.toList()).get(0);
 				if(((Student)user).register(course)){
-					System.out.println("Registered succesfully");
+					print("Registered succesfully");
 				}
 				else{
-					System.out.println("Cannot register");
+					print("Cannot register");
 				}
 			}
 			catch (IndexOutOfBoundsException ioobe){
-				System.out.println("No such course");
+				print("No such course");
 			}
 		}
 	}
 
-	public void viewMarks(){
+	public void viewMarks() throws IOException{
 		for(Course c: ((Student)user).getCourses()){
-			System.out.println(c.toString() + ((Student)user).getCurrentMarks().get(c).toString());
+			print(c.toString() + ((Student)user).getCurrentMarks().get(c).toString());
 		}
 	}
 
-	public void viewTranscipt(){
+	public void viewTranscipt() throws IOException{
 		Transcript t = ((Student)user).getTranscript();
-		System.out.println(t);
+		print(t.toString());
 	}
 
-	public void dropCourse(){
+	public void dropCourse() throws IOException{
 		while(true){
-			System.out.println("Here is the list of your courses: ");
+			print("Here is the list of your courses: ");
 			Set <Course> courses = ((Student)user).getCourses();
 			for(Course cur: courses){
-				System.out.println(cur);
+				writer.write(cur.toString());
 			}
-			System.out.println("Insert name of course you want to drop or 0 to exit");
-			final String ans = scanner.next();
+			print("Insert name of course you want to drop or 0 to exit");
+			final String ans = reader.readLine();
 			if(ans.equals("0")){
 				return;
 			}
@@ -108,46 +109,50 @@ public class StudentView extends UserView{
 								.filter(c -> c.getName().equals(ans))
 								.collect(Collectors.toList()).get(0);
 				((Student)user).dropCourse(course);
-				System.out.println("Course dropped successfully");
+				print("Course dropped successfully");
 			}
 			catch (IndexOutOfBoundsException ioobe){
-				System.out.println("No such option");
+				print("No such option");
 			}
 		}
 	}
 
 	public void main(){
 		while(true){
-			System.out.println("0. Exit");
-			System.out.println("1. View news");
-			System.out.println("2. View personal info");
-			System.out.println("3. Change password");
-			System.out.println("4. View attendance");
-			System.out.println("5. Register to a course");
-			System.out.println("6. Drop course");
-			String ans = scanner.next();
-			if(ans.equals("0")){
-				return;
+			try{
+				print("0. Exit");
+				print("1. View news");
+				print("2. View personal info");
+				print("3. Change password");
+				print("4. View attendance");
+				print("5. Register to a course");
+				print("6. Drop course");
+				String ans = reader.readLine();
+				if(ans.equals("0")){
+					return;
+				}
+				if(ans.equals("1")){
+					viewNews();
+				}
+				if(ans.equals("2")){
+					viewPersonalInfo();
+				}
+				if(ans.equals("3")){
+					changePassword();
+				}
+				if(ans.equals("4")){
+					viewAttendance();
+				}
+				if(ans.equals("5")){
+					register();
+				}
+				if(ans.equals("6")){
+					dropCourse();
+				}
 			}
-			if(ans.equals("1")){
-				viewNews();
-			}
-			if(ans.equals("2")){
-				viewPersonalInfo();
-			}
-			if(ans.equals("3")){
-				changePassword();
-			}
-			if(ans.equals("4")){
-				viewAttendance();
-			}
-			if(ans.equals("5")){
-				register();
-			}
-			if(ans.equals("6")){
-				dropCourse();
+			catch (IOException ioe){
+				System.out.println("Something is wrong");
 			}
 		}
 	}
-
 }

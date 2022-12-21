@@ -36,14 +36,14 @@ public class Main {
             String password = scanner.next();
             try{
                 user = Data.getInstance().getUser(login, password);
-                break;
+                System.out.println("Login was successfull");
+                setView(user);
+                return;
             }
             catch (Exception e){
                 System.out.println("Wrong username or password");
             }
         }
-        System.out.println("Login was successfull");
-        setView(user);
     }
 
     public static void main(String args[]){

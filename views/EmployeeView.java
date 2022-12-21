@@ -19,13 +19,13 @@ public class EmployeeView extends UserView{
 	public void viewMessages() throws IOException{
 		Vector <Message> messages = ((Employee)user).getMessages();
 		while(true){
-			System.out.println("0. Exit");
+			print("0. Exit");
 			int count = 1;
 			for(Message cur: messages){
-				System.out.println(count + "." + cur);
+				print(count + "." + cur);
 				count++;
 			}
-			String ans = scanner.next();
+			String ans = reader.readLine();
 			if(ans.equals("0")){
 				return;
 			}
@@ -33,22 +33,22 @@ public class EmployeeView extends UserView{
 				viewMessage(messages.get(Integer.parseInt(ans) - 1));
 			}
 			catch (IndexOutOfBoundsException iofe){
-				System.out.println("Wrong answer");
+				print("Wrong answer");
 			}
 			catch (NumberFormatException nfe){
-				System.out.println("Not a number");
+				print("Not a number");
 			}
 		}
 	}
 
 	public void viewMessage(Message message) throws IOException{
-		System.out.println(message.getMessage());
+		print(message.getMessage());
 	}
 
 	public void sendMessage() throws IOException{
 		System.out.println("Insert Employee's login to send message to: ");
 		User receiver;
-		String name = scanner.next();
+		String name = reader.readLine();
 		while(true){
 			try{
 				receiver = Data.getInstance().getUsers().stream()
@@ -58,13 +58,13 @@ public class EmployeeView extends UserView{
 				break;
 			}
 			catch (IndexOutOfBoundsException ioofe){
-				System.out.println("No such user");
+				print("No such user");
 			}
 		}
-		System.out.println("Insert message theme: ");
-		String theme = scanner.next();
-		System.out.println("Insert message text: ");
-		String text = scanner.next();
+		print("Insert message theme: ");
+		String theme = reader.readLine();
+		print("Insert message text: ");
+		String text = reader.readLine();
 		((Employee)user).sendMessage((Employee)receiver, theme, text);
 	}
 
