@@ -23,6 +23,7 @@ public class StudentOrganisation implements Serializable, Comparable <StudentOrg
 	protected StudentOrganisation() {}
 	/**
 	 *Constructor-create a new students organization
+	 *@param name The name of organization 
 	 *@see StudentOrganisation#StudentOrganisation()
 	 *@see StudentOrganisation#StudentOrganisation(String, String)
 	*/
@@ -31,6 +32,8 @@ public class StudentOrganisation implements Serializable, Comparable <StudentOrg
 	}
 	/**
 	 *Constructor-create a new students organization
+	 *@param name The name of organization 
+	 *@param desc The description of organization
 	 *@see StudentOrganisation#StudentOrganisation()
 	 *@see StudentOrganisation#StudentOrganisation(String)
 	*/
@@ -53,13 +56,15 @@ public class StudentOrganisation implements Serializable, Comparable <StudentOrg
 		return desc;
 	}
 	/**
-	 *Method for set name of organization  
+	 *Method for set name of organization
+	 *@param name The name of organization 
 	*/
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
 	 *Method for set description of organization  
+	 *@param desc The description of organization 
 	*/
 	public void setDesc(String desc) {
 		this.desc = desc;
@@ -72,13 +77,15 @@ public class StudentOrganisation implements Serializable, Comparable <StudentOrg
 		return members;
 	}
 	/**
-	 *Method to add a new student to organization  
+	 *Method to add a new student to organization
+	 *@param member Student object
 	*/
 	public void addMember(Student member) {
 		members.add(member);
 	}
 	/**
 	 *Method to add list of students to organization  
+	 *@param members List of Student objects
 	*/
 	public void addMembers(Vector <Student> members) {
 		this.members.addAll(members);
@@ -91,6 +98,7 @@ public class StudentOrganisation implements Serializable, Comparable <StudentOrg
 	}
 	/**
 	 *Method for checking organizations for identity
+	 *@param o Object object
 	 *@return boolean
 	*/
 	public boolean equals(Object o) {
@@ -109,6 +117,7 @@ public class StudentOrganisation implements Serializable, Comparable <StudentOrg
 	}
 	/**
 	 *Method for compare number of students in organizations 
+	 *@param o StudentOrganization object 
 	 *@return int
 	*/
 	public int compareTo(StudentOrganisation o) {
